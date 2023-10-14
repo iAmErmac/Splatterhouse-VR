@@ -69,6 +69,7 @@ To install:
 
 * Impie - for the mod
 * Cherno - for SimSun shader
+* Ermac - VR Enhancements
 
 ## 3D Model credits
 
