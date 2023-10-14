@@ -1,0 +1,133 @@
+actor BrutalizedFlemoidusCommonus : FlemoidusCommonus Replaces FlemoidusCommonus
+{
+Bloodtype "Green_Blood"
+BloodColor "DarkGreen"
+	States
+	{
+		Death:
+		XDeath:
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_Scream
+		TNT1 AA 0 A_CustomMissile ("GreenXDeath1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAA 0 A_CustomMissile ("GreenXDeath2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAA 0 A_CustomMissile ("GreenXDeath3", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAA 0 A_CustomMissile ("SuperWallGreenBlood", 40, 0, random (0, 360), 2, random (-5, 5))
+		 TNT1 AAAA 0 A_CustomMissile ("GreenInstestin", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Green_FlyingBlood", 35, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAA 0 bright A_CustomMissile ("GreenSuperGoreSpawner", 32, 0, random (0, 360), 2, random (50, 130))
+	     TNT1 A 0 A_CustomMissile ("GreenGiantBloodSpot", 12, 0, random (0, 360), 2, random (0, 160))
+	GRXD ABCDE 6
+	GRXD E -1
+	Stop
+	}
+}
+
+actor BrutalizedFlemoidusBipedicus : FlemoidusBipedicus Replaces FlemoidusBipedicus
+{
+Bloodtype "Green_Blood"
+BloodColor "DarkGreen"
+	States
+	{
+		Death:
+		XDeath:
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_Scream
+		TNT1 AA 0 A_CustomMissile ("GreenXDeath1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAA 0 A_CustomMissile ("GreenXDeath2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAA 0 A_CustomMissile ("GreenXDeath3", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAA 0 A_CustomMissile ("SuperWallGreenBlood", 40, 0, random (0, 360), 2, random (-5, 5))
+		 TNT1 AAAA 0 A_CustomMissile ("GreenInstestin", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Green_FlyingBlood", 35, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAA 0 bright A_CustomMissile ("GreenSuperGoreSpawner", 32, 0, random (0, 360), 2, random (50, 130))
+	     TNT1 A 0 A_CustomMissile ("GreenGiantBloodSpot", 12, 0, random (0, 360), 2, random (0, 160))
+	GRXD ABCDE 6
+	GRXD E -1
+	Stop
+}
+}
+
+
+
+actor BrutalizedArmoredFlemoidusBipedicus : ArmoredFlemoidusBipedicus  Replaces ArmoredFlemoidusBipedicus 
+{
+Bloodtype "Green_Blood"
+BloodColor "DarkGreen"
+	States
+	{
+		Death:
+		XDeath:
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_Scream
+		TNT1 AA 0 A_CustomMissile ("GreenXDeath1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAA 0 A_CustomMissile ("GreenXDeath2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAA 0 A_CustomMissile ("GreenXDeath3", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAA 0 A_CustomMissile ("SuperWallGreenBlood", 40, 0, random (0, 360), 2, random (-5, 5))
+		 TNT1 AAAA 0 A_CustomMissile ("GreenInstestin", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Green_FlyingBlood", 35, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAA 0 bright A_CustomMissile ("GreenSuperGoreSpawner", 32, 0, random (0, 360), 2, random (50, 130))
+	     TNT1 A 0 A_CustomMissile ("GreenGiantBloodSpot", 12, 0, random (0, 360), 2, random (0, 160))
+	     
+		 TNT1 AA 0 A_CustomMissile ("XJunk1", 5, 0, random (0, 360), 2, random (40, 150))
+		 TNT1 AA 0 A_CustomMissile ("XJunk2", 5, 0, random (0, 360), 2, random (40, 150))
+		 TNT1 AAAA 0 A_CustomMissile ("XJunk3", 5, 0, random (0, 360), 2, random (40, 150))
+		 TNT1 AA 0 A_CustomMissile ("XJunk4", 5, 0, random (0, 360), 2, random (40, 150))
+		 TNT1 AA 0 A_CustomMissile ("XJunk5", 5, 0, random (0, 360), 2, random (40, 150))
+	
+	
+	GRXD ABCDE 6
+	GRXD E -1
+	Stop
+}
+}
+
+
+
+actor BrutalizedFCC : FlemoidusCycloptisCommonus Replaces FlemoidusCycloptisCommonus
+{
+Bloodtype "Green_Blood"
+BloodColor "DarkGreen"
+	States
+	{
+		Death:
+		XDeath:
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_Scream
+		TNT1 AA 0 A_CustomMissile ("GreenXDeath1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAA 0 A_CustomMissile ("GreenXDeath2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAA 0 A_CustomMissile ("GreenXDeath3", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAA 0 A_CustomMissile ("SuperWallGreenBlood", 40, 0, random (0, 360), 2, random (-5, 5))
+		 TNT1 AAAA 0 A_CustomMissile ("GreenInstestin", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Green_FlyingBlood", 35, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAA 0 bright A_CustomMissile ("GreenSuperGoreSpawner", 32, 0, random (0, 360), 2, random (50, 130))
+	     TNT1 A 0 A_CustomMissile ("GreenGiantBloodSpot", 12, 0, random (0, 360), 2, random (0, 160))
+		 
+	GRXD ABCDE 6
+	GRXD E -1
+	Stop
+}
+}
+
+
+actor BrutalizedFlembrane : Flembrane Replaces Flembrane
+{
+Bloodtype "Green_Blood"
+BloodColor "DarkGreen"
+	States
+	{
+		Death:
+		XDeath:
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_Scream
+		TNT1 AAAAAAAAA 0 A_CustomMissile ("GreenXDeath1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAAAAAA 0 A_CustomMissile ("GreenXDeath2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAAAAAAAAA 0 A_CustomMissile ("GreenXDeath3", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAAAAAAA 0 A_CustomMissile ("SuperWallGreenBlood", 40, 0, random (0, 360), 2, random (-5, 5))
+		 TNT1 AAAA 0 A_CustomMissile ("GreenInstestin", 32, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Green_FlyingBlood", 35, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAAAAAAA 0 bright A_CustomMissile ("GreenSuperGoreSpawner", 32, 0, random (0, 360), 2, random (50, 130))
+	     TNT1 A 0 A_CustomMissile ("GreenGiantBloodSpot", 12, 0, random (0, 360), 2, random (0, 160))
+	GRXD ABCDE 6
+	GRXD E -1
+	Stop
+}
+}

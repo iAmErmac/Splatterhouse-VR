@@ -1,0 +1,106 @@
+Class PotassiumBomb : Weapon //31999
+{
+	Default
+	{
+	//$Category Weapons
+	Weapon.SelectionOrder 3000;
+	Weapon.SlotNumber 5;
+	Weapon.Ammotype1 "rocketammo";
+	Weapon.AmmoUse1 1;
+	Weapon.AmmoGive1 1;
+	Weapon.Ammotype2 "rocketammo";
+	Weapon.AmmoUse2 0;
+	Weapon.AmmoGive2 0;
+	Weapon.Kickback 200;
+	Inventory.Icon "BOMIA0";
+	Inventory.Pickupsound "ammo/pbombs";
+	Inventory.PickupMessage "The bar is open, ladies!";
+	Obituary "%k served %o a cocktail.";
+	}
+  
+	States
+	{
+	Spawn:
+		BOMI A 6;
+		loop;
+	Ready:
+		BOMG A 1 A_WeaponReady;
+		loop;
+	Deselect:
+		BOMG A 1 A_Lower;
+		loop;
+	Select: 
+		BOMG A 1 A_Raise;
+		loop;
+	Fire:
+		BOMG A 2;
+		BOMG B 2;
+		BOMG C 2;
+		BOMG D 2;
+		BOMG E 2;
+		BOMG E 2;
+		TNT1 A 6 A_firecustommissile("BottleFire",0,1);
+		TNT1 A 6 A_CheckReload;
+		BOMG F 3;
+		BOMG G 3;
+		BOMG H 3;
+		goto Ready;
+	AltFire:
+		RBUT ABC 2;
+		RBUT D 10 A_CustomPunch (20, FALSE, 0, "KickPuff", 96);
+		RBUT EF 6;
+		goto Ready;
+	}
+}
+
+Class Rocket2 : Rocket replaces Rocket
+{
+	Default
+	{
+	-ROCKETTRAIL
+	+THRUGHOST
+	decal "bigscorch";
+	Damage 50;
+	seesound "weapons/rlan/fire";
+	deathsound "weapons/rlan/explosion";
+	}
+	
+	states
+	{
+	Spawn:
+		MISL A 1 bright A_CustomMissile("Rocket1Trail",random(-2,2),random(-2,2));
+		loop;
+	Death:
+		TNT1 A 0;
+		TNT1 A 0 A_Scream;
+		TNT1 A 0 A_ChangeFlag("FORCEXYBILLBOARD",1);
+		TNT1 A 0 A_custommissile("SmokingPiece",random(0,16),random(-8,8),random(-360,360),2,random(10,70));
+		TNT1 A 0 A_custommissile("SmokingPiece",random(0,16),random(-8,8),random(-360,360),2,random(10,70));
+		TNT1 A 0 A_custommissile("SmokingPiece",random(0,16),random(-8,8),random(-360,360),2,random(10,70));
+		TNT1 A 0 A_custommissile("SmokingPiece",random(0,16),random(-8,8),random(-360,360),2,random(10,70));
+		TNT1 A 0 A_custommissile("SmokingPiece",random(0,16),random(-8,8),random(-360,360),2,random(10,70));
+		TNT1 A 0 A_custommissile("SmokingPiece",random(0,16),random(-8,8),random(-360,360),2,random(10,70));
+		TNT1 A 0 A_custommissile("SmokingPiece",random(0,16),random(-8,8),random(-360,360),2,random(10,70));
+		REXP G 2 bright A_Explode(50,128);
+		REXP H 2 bright A_Explode(50,128);
+		REXP I 2 bright A_Explode(50,128);
+		REXP KLMNOPQRSTUVW 2 bright;
+		stop;
+	}
+}
+
+Class BottleFire : rocket2
+{
+	Default
+	{
+	Damage 45;
+	SeeSound "topheavy/swing";
+	}
+	
+	States
+	{
+	Spawn:
+		BOTF A 2 Bright;
+		Loop;
+	}
+}

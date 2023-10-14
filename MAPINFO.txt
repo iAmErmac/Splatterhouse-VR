@@ -1,0 +1,664 @@
+Gameinfo
+{
+	PlayerClasses = "RickPlayer"
+	quitsound = "quitter/quit"
+	titlemusic = "SplatTtl"
+	intermissionmusic = "SplatTtl"
+	finalemusic = "SplatFin"
+}
+
+DoomEdNums
+{
+	31977 = BaseballBat
+	31999 = PotassiumBomb
+	31988 = TerrorBlast
+	31989 = TerrorAmmo
+	31995 = TerrorMask
+	31996 = LifeHeart
+	31997 = LifeWill
+	31998 = JennySpirit
+	31899 = JennySave
+	31994 = DavidSave
+}
+
+SpawnNums
+{
+	221 = LifeHeart
+	222 = LifeWill
+	223 = JennySpirit
+	224 = JennySave
+	225 = DavidSave
+}
+
+clearepisodes
+defaultmap {clipmidtextures}
+
+// Episodes
+Episode S1M1
+{
+    Name = "Breakup From Hell"
+}
+
+Episode S2M1
+{
+    Name = "The Gate of Orpheus"
+}
+
+Episode S3M1
+{
+    Name = "Fall of the House of Taylor"
+}
+
+// Maps
+//E1
+map s1m1 "Forgotten Catacombs"
+{
+	levelnum = 1
+	next = "s1m2"
+	sky1 = "SPLATSKY"
+	cluster = 11
+	music = "E1CATAC"
+}
+
+map s1m2 "The Dungeons of Dr. West"
+{
+	levelnum = 2
+	next = "s1m3"
+	sky1 = "SPLATSKY"
+	cluster = 12
+	music = "E1DUNGE"
+}
+
+map s1m3 "Hangtree Woods"
+{
+	levelnum = 3
+	next = "s1m4"
+	sky1 = "SPLATSKY"
+	cluster = 13
+	music = "E1HANGT"
+}
+
+map s1m4 "Haunted Halls"
+{
+	levelnum = 4
+	next = "s1m5"
+	sky1 = "SPLATSKY"
+	cluster = 14
+	music = "E1HAUNT"
+}
+
+map s1m5 "Monster Nursery"
+{
+	levelnum = 5
+	next = "s1m6"
+	sky1 = "SPLATSKY"
+	cluster = 15
+	music = "E1LABS"
+}
+
+map s1m6 "True Romance"
+{
+	levelnum = 6
+	next = Endsequence,"Breakup"
+	sky1 = "SPLATSKY"
+	cluster = 16
+	music = "E1BREAK"
+}
+
+map s2m1 "Back to the House"
+{
+	levelnum = 7
+	next = "s2m2"
+	sky1 = "SPLATSKY"
+	cluster = 21
+	music = "E2RUINS"
+}
+
+map s2m2 "Hellevator"
+{
+	levelnum = 8
+	next = "s2m3"
+	sky1 = "HELLSKY"
+	cluster = 22
+	music = "E2ELEV"
+}
+
+map s2m3 "Rotten Bayou"
+{
+	levelnum = 9
+	next = "s2m4"
+	sky1 = "SWAMPSKY"
+	cluster = 23
+	music = "E1HANGT"
+}
+
+map s2m4 "Mueller Mansion"
+{
+	levelnum = 10
+	next = "s2m5"
+	sky1 = "SPLATSKY"
+	cluster = 24
+	music = "E2MUELL"
+}
+
+map s2m5 "The Hidden Below"
+{
+	levelnum = 11
+	next = "s2m6"
+	sky1 = "SPLATSKY"
+	cluster = 25
+	music = "E2TOMB"
+}
+
+map s2m6 "Hell and Back"
+{
+	levelnum = 12
+	next = Endsequence,"Orpheus"
+	sky1 = "HELLSKY"
+	cluster = 26
+	music = "E2HELL"
+	InfiniteFlightPowerup
+}
+
+map s3m1 "Father Knows Best"
+{
+	levelnum = 13
+	next = "s3m2"
+	sky1 = "SWAMPSKY"
+	cluster = 31
+	music = "E2TOMB"
+}
+
+map s3m2 "Jenny's Night Gallery"
+{
+	levelnum = 14
+	next = "s3m3"
+	sky1 = "SWAMPSKY"
+	cluster = 32
+	music = "E3GALLER"
+}
+
+map s3m3 "Suffer the Little Children"
+{
+	levelnum = 15
+	next = "s3m4"
+	sky1 = "SWAMPSKY"
+	cluster = 33
+	music = "E3CHILD"
+}
+
+map s3m4 "Hide-And-Seek Garden"
+{
+	levelnum = 16
+	next = "s3m5"
+	sky1 = "SWAMPSKY"
+	cluster = 34
+	music = "E1HANGT"
+}
+
+map s3m5 "Museum of Esoterica"
+{
+	levelnum = 17
+	next = "s3m6"
+	sky1 = "HELLSKY"
+	cluster = 35
+	music = "E3MUSEUM"
+}
+
+map s3m6 "Blood Simple"
+{
+	levelnum = 18
+	next = Endsequence,"Family"
+	sky1 = "SWAMPSKY"
+	cluster = 36
+	music = "E1DUNGE"
+}
+
+//E1
+//Catacombs End
+cluster 11
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "You shiver in remembrance of the",
+                   "dream visions that assaulted you.",
+				   "A mayan warrior bearing the Terror",
+				   "Mask, wrestling with monstrous",
+                   "things as his rite of passage.",
+				   " ",
+				   "When you awoke, the Mask was on your",
+				   "face, goading you to kill.",
+				   " ",
+				   "Now you reel at the sight before you:",
+				   "dank corridors lined with kennels,",
+				   "each packed to bursting with moaning",
+				   "abominations. You reflect on the",
+				   "journals of Dr. West and shudder.",
+				   " ",
+				   "The horrors of West Mansion are",
+				   "real. And they have Jenny."
+}
+
+//Dungeons End
+cluster 12
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "Jenny's screams guide you on your",
+                   "voyage of brutality. The mask wracks",
+				   "your body with adrenaline. Your bones",
+				   "and muscles ache and tremble.",
+                   " ",
+				   "You dash out into the rain, screaming.",
+				   " ",
+				   "Briefly your rational self returns and",
+				   "remembers the woods before you. The",
+				   "house lies in wait among the ugly",
+				   "trees, their boughs decorated with",
+				   "dangling things neither dead nor alive,",
+				   "and almost certainly not human. You",
+				   "can't help wondering who hung them",
+				   "there..."
+}
+
+//Woods End
+cluster 13
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "You wade knee-deep in gore to the",
+                   "old house as the mask whispers in",
+				   "your ear, egging you on with every",
+				   "kill.",
+                   " ",
+				   "Somewhere in the distance you hear",
+				   "Jenny scream again. No matter how",
+				   "much closer you get to her, she's",
+				   "always just out of reach. Is the",
+				   "mask responsible? Is it keeping you",
+				   "separated to prolong the slaughter?",
+				   "Is it responsible for this horrifying",
+				   "night all along?",
+				   " ",
+				   "You look at your hands, slick with",
+				   "blood, and suddenly you don't care.",
+				   "Under the mask, you're smiling."
+}
+
+//House End
+cluster 14
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "The inverted cross, your own reflection",
+                   "leaping out of the mirrors to strangle",
+				   "you...the house is alive and mocking you.",
+                   " ",
+				   "The Mask loves the carnage. It uses you",
+				   "as a beacon, bringing the monsters to you.",
+				   "You curse the bastard and beg it for a",
+				   "moment's rest.",
+				   " ",
+				   "'The mad doctor lives,' it screams into",
+				   "your brain. 'He has had fiendish union",
+				   "with your Jenny! Find the heart that",
+				   "gives his house life and tear it out!'",
+				   " ",
+				   "Fuck the house, you say. All you want",
+				   "is Jenny, whose screams lead you straight",
+				   "into Dr. West's laboratory."
+}
+
+//Nursery End
+cluster 15
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "The earth trembles around you in",
+                   "the wake of the abomination's howls.",
+				   "The flesh walls bubble and boil,",
+				   "emitting noxious gases as they",
+                   "finally erupt in clouds of hellfire.",
+				   " ",
+				   "You've killed whatever kept Dr. West's",
+				   "damnable house alive. Now the property",
+				   "is a towering inferno, with Jenny still",
+				   "trapped inside.",
+				   " ",
+				   "You return from your blood frenzy long",
+				   "enough to dread losing her. Shouting her",
+				   "name, you race up the basement stairs."
+}
+
+//E1 End
+cluster 16
+{
+	pic = "DEMOPIC"
+	music = "SPLATFIN"
+        exittext = "The house is little more than a",
+                   "smoldering crater by the first",
+				   "morning light. The woods are still",
+				   "and lifeless. The mask's voice no",
+                   "longer torments you: it has re-",
+				   "leased you at last, its bloodlust",
+				   "sated. It departs with a cruel",
+				   "laugh that mocks your tragedy.",
+				   " ",
+				   "'Jen...' you say in a weak, pathetic",
+				   "voice you barely recognize as your own.",
+				   " ",
+				   "You say her name over and over as",
+				   "you wander the woods for days. Its",
+				   "all Dr. Hooper and his asylum staff",
+				   "ever get out of you, session after",
+				   "session."
+}
+
+//E1 End Scene
+Intermission Breakup
+{
+  Image
+  {
+  Background = "END1"
+  Music = "SPLATFIN"
+  }
+}
+
+//E2
+//House Ruins End
+cluster 21
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "The door leads to an ancient elevator",
+                   "that descends deep underground.",
+				   " ",
+				   "Is this a secret entrance to Mueller's",
+                   "house? Or a detour into the depths of",
+				   "hell?",
+				   " ",
+				   "Your teeth gnash as you think of your",
+				   "traitorous mentor, Professor Mueller.",
+				   "The bitch must have known this would",
+				   "happen. You can imagine her gloating",
+				   "as she holds Jen's soul hostage,",
+				   "eager to get her hands on the mask.",
+				   " ",
+				   "You'll bring it to her, all right.",
+				   "And hell's coming with you."
+}
+
+//Elevator End
+cluster 22
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "You'll never ride another elevator",
+                   "for as long as you live.",
+				   " ",
+				   "The crypt opens onto a sprawling bayou",
+				   "that reeks of decay. On the other side,",
+				   "the rooftop of Mueller Mansion peers",
+				   "over the distant treetops to mock you.",
+				   " ",
+				   "The bayou comes alive the moment your",
+				   "feet touch the spongy earth. Longing",
+				   "for Jen's strawberry scent, you",
+				   "journey upstream."
+}
+
+//Bayou End
+cluster 23
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "You tremble as you enter your mentor's",
+                   "home, the front door shrieking to",
+				   "announce your intrusion. Somewhere",
+				   "within these halls lies the secret",
+                   "of resurrection the Mask spoke of so",
+				   "tauntingly. Professor Mueller often",
+				   "gloated about her library of for-",
+				   "bidden tomes, stashed away in a",
+				   "private retreat.",
+				   " ",
+				   "Somewhere within the mansion, you",
+				   "hear Mueller cry out, either in",
+				   "fear or anger, you aren't sure. What-",
+				   "ever evil lurks in this house, the",
+				   "mask's perverse presence has given",
+				   "it steroids..."
+}
+
+//House End
+cluster 24
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "Mueller's journal reveals the key:",
+                   "hideous ruins beneath the manor",
+				   "which mark one of nine earthly",
+				   "doorways to Hell.",
+                   " ",
+				   "'Satisfy the blood sacrifice, then",
+				   "speak the names of the ancient ones",
+				   "to open the gate and descend like",
+				   "Orpheus into the abyss.'",
+				   " ",
+				   "Orpheus. How appropriate.",
+				   " ",
+				   "You shiver at the thought of what",
+				   "nightmares your mentor has been",
+				   "collaborating with on the other side.",
+				   "You'll soon be able to meet them."
+}
+
+//Temple End
+cluster 25
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "A chill washes over you as you",
+                   "tear away the forbidden seal, and",
+				   "the mouth of the great abyss yawns",
+				   "to swallow you.",
+                   " ",
+				   "The infinite blackness beckons you",
+				   "with Jenny's scream.",
+				   " ",
+				   "Gathering the last of your rage,",
+				   "you descend into Hell..."
+}
+
+//Hell End
+cluster 26
+{
+	pic = "DEMOPIC"
+	music = "SPLATFIN"
+        exittext = "You narrowly get Jen into the boat",
+                   "in time, before Mueller Mansion",
+				   "sinks into the belly of the bayou.",
+				   "Your mentor is where she belongs",
+                   "now, with her infernal friends.",
+				   " ",
+				   "The Mask has gone, leaving you as",
+				   "you were with Jennifer. She embraces",
+				   "you and sleeps in your arms for",
+				   "the entire voyage home.",
+				   " ",
+				   "But what of the Terror Spirit?",
+				   " ",
+				   "As long as other masks exist,",
+				   "it can happen again..."
+}
+
+//E2 End Scene
+Intermission Orpheus
+{
+  Image
+  {
+  Background = "END2"
+  Music = "SPLATFIN"
+  }
+}
+
+//E3
+//Foyer End
+cluster 31
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "The evening had such a wonderful start.",
+				   "A haunted house event for your society",
+				   "friends to celebrate your bestseller's",
+                   "film premier. Even Jenny managed to",
+				   "keep her neuroses under wraps long",
+				   "enough to enjoy herself.",
+				   " ",
+				   "The entrails of your peers now deco-",
+				   "rate the halls of your mansion, and",
+				   "hellish things roam the grounds.",
+				   "Worse still, you decipher Jenny's",
+				   "blubbering: Dr. West haunts the",
+				   "house, and has taken David to the",
+				   "gallery. You race to find him, pat-",
+				   "ernal instinct winning out against",
+				   "fear of the boy's strange powers."
+				   
+}
+
+//Gallery End
+cluster 32
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "A trap...Had Jenny meant to send you",
+                   "to your death? Vengeance for hiding",
+				   "your disturbed wife and freakish son",
+				   "from public view for so many years?",
+				   " ",
+				   "The Mask speaks: 'It was the doctors",
+				   "who deceived you. West and Mueller have",
+				   "taken advantage of our reunion and pos-",
+				   "sessed your Jenny. West means to steal",
+				   "David's body and return to earth anew.",
+				   "While you fought the worms, Mueller-",
+				   "Jenny has begun her hunt for West's",
+				   "new living vessel!'",
+				   " ",
+				   "David...your son...You scream in animal",
+				   "rage, and race to the boy's room, praying",
+				   "that his possessed mother hasn't beaten",
+				   "you to him."
+}
+
+//Children End
+cluster 33
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "Your fists tremble uncontrollably.",
+                   "David's name roars from your throat.",
+				   "You collapse to the ground, weeping.",
+                   "Every fatherly failure returns to",
+				   "your mind in a mocking slideshow.",
+				   "The doctors who couldn't fix his",
+				   "telekinesis nor his visions, nor",
+				   "identify the origin of those powers.",
+				   "You are certain the deity used him",
+				   "as a beacon somehow. And perhaps",
+				   "the undead doctors as well.",
+				   " ",
+				   "A brief vision startles you: David",
+				   "fleeing to the gardens to escape a",
+				   "violent, perverse Jenny. The boy",
+				   "cries out to you in desperation.",
+				   " ",
+				   "Must you kill her again?",
+				   "To save David...?"
+}
+
+//Cellar End
+cluster 34
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "Jenny's desperate pleading doesn't",
+                   "fool you for long, and soon gives",
+				   "way to a sinister smirk that once",
+				   "belonged to Professor Mueller.",
+				   "'Surely you won't kill your Jenny",
+				   "twice,' she says with a laugh.",
+				   " ",
+				   "Briefly you feel the urge rising,",
+				   "goaded by the malignant spirit driv-",
+				   "ing you. You curse the deity, and",
+				   "lock Jenny in the closet instead.",
+				   " ",
+				   "Another vision from David, calling",
+				   "to you. Demented Dr. West towers over",
+				   "the boy in a sacrificial circle,",
+				   "drawn on the floor of your personal",
+				   "museum..."
+}
+
+//Museum End
+cluster 35
+{
+	pic = "DEMOPIC"
+	music = "SPLATINT"
+        exittext = "Endless fatigue, and endless hunger.",
+                   "Both sensations wash over you as",
+				   "you watch the doctors' secret play-",
+				   "ground implode, swallowed by the",
+                   "primal void where the terror deity",
+				   "dwells.",
+				   " ",
+				   "It is leaving this universe for",
+				   "another at long last...and it's",
+				   "taking them with. Jenny. David.",
+				   " ",
+				   "Snacks for the road.",
+				   " ",
+				   "The bastard thanks it's foolish",
+				   "avatar with a malignant laugh.",
+				   "Your scream drowns it out as you",
+				   "leap into the void after your",
+				   "family..."
+}
+
+//Mask End
+cluster 36
+{
+	pic = "DEMOPIC"
+	music = "SPLATFIN"
+        exittext = "You awaken with a start in the",
+                   "garden, soaked by the rain, the",
+				   "mad shriek of the dying god",
+				   "ringing in your ears. Jenny lies",
+				   "beside you in the grass like",
+				   "sleeping beauty. She holds David",
+				   "tenderly in her arms as they",
+				   "enjoy a deep, dreamless sleep.",
+				   " ",
+				   "The nightmare is finally over.",
+				   "You let them sleep as you stand",
+				   "to meet the approaching police",
+				   "sirens, unsure how to explain",
+				   "your missing guests.",
+				   " ",
+				   "Still, while your family is",
+				   "safe from the terror god,",
+				   "other evils still lurk in the",
+				   "dark corners of the earth..."
+}
+
+//E3 End Scene
+Intermission Family
+{
+Image
+{
+  Background = "END3"
+  Music = "SPLATFIN"
+}
+}

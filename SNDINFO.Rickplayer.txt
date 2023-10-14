@@ -1,0 +1,35 @@
+weapons/axecut SPLICE
+weapons/axebang CLANG
+weapons/axeswing SWISH
+silent DSEMPTY //only in new Zdooms
+
+/// MENU SOUNDS
+
+s3d/item  s3ditem
+s3d/pause s3dpause
+s3d/evillaff s3devlaf
+
+$alias menu/choose  s3d/item	
+$alias menu/cursor	gibs/blood1
+$alias menu/backup	s3d/pause
+$alias menu/activate	s3d/pause
+$alias menu/clear	switches/eclunk
+
+vile/raise s3domnus
+
+// Door Sounds
+doors/dr1_open			sdorbig
+doors/dr1_clos			sdorbig
+doors/dr2_open			sdorsmop
+doors/dr2_clos 			sdorsmcl
+
+// Pickup Sounds
+misc/secret			s3dsecrt
+misc/w_pkup			s3devlaf	// Pickup weapon
+misc/p_pkup			s3dpower	// Pickup powerup
+misc/i_pkup			s3ditem		// Pickup item
+misc/k_pkup			s3ditem		// Pickup key
+
+BatHitThing		bathitfl
+BatHitWall		bathitwl
+BatSwing		swish

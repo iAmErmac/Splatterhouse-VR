@@ -1,0 +1,86 @@
+
+Class BaseballBat : Weapon //31977
+{
+	Default
+	{
+	//$Category Weapons
+	Weapon.SelectionOrder 300;
+	Weapon.SlotNumber 2;
+	Weapon.Kickback 200;
+	+WEAPON.MELEEWEAPON;
+	+PUFFONACTORS;
+	Inventory.Icon "SPBTA0";
+	Inventory.Pickupsound "BatSwing";
+	Inventory.PickupMessage "SWING battah battahhh!";
+	Obituary "%k hit a home run with %o's head.";
+	}
+	
+	States
+	{
+	Spawn:
+		SPBT A 6;
+		loop;
+	Ready:
+		DBID A 1 A_WeaponReady;
+		loop;
+	Deselect:
+		DBID A 1 A_Lower;
+		loop;
+	Select: 
+		DBID A 1 A_Raise;
+		loop;
+	Fire:
+		DBID A 1;
+		DBID B 1;
+		DBID C 1;
+		DBID D 2 A_PlaySound("Batswing");
+		DBID E 2 A_CustomPunch (Random(8, 12), FALSE, 0, "BatPuff", 112);
+		DBID F 2;
+		DBID G 2 A_CustomPunch (Random(15, 25), FALSE, 0, "BatPuff", 112);
+		DBID H 2;
+		DBID I 3 A_CustomPunch (Random(6, 10), FALSE, 0, "BatPuff", 112);
+		DBID J 5;
+		DBID C 4;
+		DBID B 3;
+		DBID A 2;
+		goto Ready;
+	AltFire:
+		RBUT ABC 2;
+		RBUT D 10 A_CustomPunch (20, FALSE, 0, "KickPuff", 96);
+		RBUT EF 6;
+		goto Ready;
+	}
+}
+
+Class BatPuff : Actor
+{
+	Default
+	{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOEXTREMEDEATH
+	+PUFFONACTORS
+	RenderStyle "Translucent";
+	Alpha 0.6;
+	SeeSound "BatHitThing";
+	AttackSound "BatHitWall";
+	VSpeed 1;
+	}
+	
+	States
+	{
+	Spawn:
+		PUFF ABCD 4;
+		Stop;
+	}
+}  
+
+Class KickPuff : BatPuff
+{
+	Default
+	{
+	attacksound "weapons/fist/hitwall";
+	seesound "weapons/fist/punch";
+	ProjectileKickback 200;
+	}
+}  

@@ -1,0 +1,5 @@
+//sliding door sounds
+:MovingDoor
+   playuntildone   doors/dr2_open
+   door 1
+end

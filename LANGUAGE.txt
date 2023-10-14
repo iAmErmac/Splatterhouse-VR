@@ -1,0 +1,31 @@
+//MESSAGES
+[enu default]
+
+QUITMSG = "Press Y to take the easy way out.";
+QUITMSG1 = "Press Y to take the easy way out.";
+QUITMSG2 = "Press Y to take the easy way out.";
+QUITMSG3 = "Press Y to take the easy way out.";
+QUITMSG4 = "Press Y to take the easy way out.";
+QUITMSG5 = "Press Y to take the easy way out.";
+QUITMSG6 = "Press Y to take the easy way out.";
+QUITMSG7 = "Press Y to take the easy way out.";
+QUITMSG8 = "Press Y to take the easy way out.";
+QUITMSG9 = "Press Y to take the easy way out.";
+QUITMSG10 = "Press Y to take the easy way out.";
+QUITMSG11 = "Press Y to take the easy way out.";
+QUITMSG12 = "Press Y to take the easy way out.";
+QUITMSG13 = "Press Y to take the easy way out.";
+QUITMSG14 = "Press Y to take the easy way out.";
+DOSY = "[Press N or Y]";
+TXT_YES = "[Yes]";
+TXT_NO = "[No]";
+
+PD_BLUECO = "Locked. You need a Blue Key.";
+PD_REDCO = "Locked. You need a Red Key.";
+PD_YELLOWCO = "Locked. You need a Gold Key.";
+PD_BLUEC = "Locked. You need a Blue Key.";
+PD_REDC = "Locked. You need a Red Key.";
+PD_YELLOWC = "Locked. You need a Gold Key.";
+GOTBLUECARD = "You found a Blue Key!";
+GOTREDCARD = "You found a Red Key!";
+GOTYELWCARD = "You found a Gold Key!";

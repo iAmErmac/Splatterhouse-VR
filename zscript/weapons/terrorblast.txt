@@ -1,0 +1,133 @@
+Class TerrorBlast : Weapon //31988
+{
+	Default
+	{
+	//$Category Weapons
+	Weapon.SelectionOrder 200;
+	Weapon.SlotNumber 6;
+	Weapon.Ammotype1 "cell";
+	Weapon.AmmoUse1 1;
+	Weapon.AmmoGive1 50;
+	Weapon.Ammotype2 "cell";
+	Weapon.AmmoUse2 0;
+	Weapon.AmmoGive2 0;
+	Weapon.Kickback 20;
+	Inventory.Icon "cella0";
+	Inventory.PickupMessage "You unlock the mask's inner powers!";
+	Obituary "%k damned %o to hell.";
+	}
+
+	States
+	{
+	Spawn:
+		SPIR ABCD 6 Bright;
+		loop;
+	Ready:
+		RHAN A 1 A_WeaponReady;
+		loop;
+	Deselect:
+		RHAN B 1 A_Lower;
+		loop;
+	Select: 
+		RHAN B 1 A_Raise;
+		loop;
+	Fire:
+		RHAN B 2 A_firecustommissile("HellBlast",0,1);
+		RHAN B 2 A_CheckReload;
+		goto Ready;
+	AltFire:
+		RBUT ABC 2;
+		RBUT D 10 A_CustomPunch (20, FALSE, 0, "KickPuff", 96);
+		RBUT EF 6;
+		goto Ready;
+	}
+}
+
+Class TerrorAmmo : Cell //31989
+{
+	Default
+	{
+	//$Category Ammunition
+	Inventory.PickupMessage "You absorb a trapped nightmare.";
+	}
+	
+	States
+	{
+	Spawn:
+		SOUL ABCDEF 6 Bright;
+		loop;
+	}
+}
+
+CLass HellBlast : FastProjectile
+{
+	Default
+	{
+	radius 1;
+	height 1;
+	speed 50;
+	Damage 30;
+	renderstyle "Add";
+	decal "RailScorchLower";
+	SeeSound "hguard/attack";
+	DeathSound "hguard/hit";
+	PROJECTILE;
+	+RANDOMIZE
+	+BLOODSPLATTER
+	+FOILINVUL
+	+DONTREFLECT
+	}
+	
+	states
+	{
+	Spawn:
+		TNT1 A 1 bright A_SpawnItemEx("railtrail", 0, 0, 0,0,0,0,0,128);
+		loop;
+	Death:
+		TNT1 A 2 bright A_SpawnItemEx("railpow", 0, 0, 0,0,0,0,0,128);
+		stop;
+	}
+}
+
+Class Railtrail : Actor
+{
+	Default
+	{
+	Radius 2;
+	Height 2;
+	Speed 0;
+	scale 0.5;
+	PROJECTILE;
+	+CLIENTSIDEONLY
+	+NOINTERACTION
+	}
+   
+	States
+	{
+	Spawn:
+		ACNF ABABAB 3 BRIGHT;
+		Stop;
+	}
+}
+
+Class Railpow : Actor
+{
+	Default
+	{
+	Radius 2;
+	Height 2;
+	Speed 0;
+	Scale 0.5;
+	PROJECTILE;
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	}
+   
+	States
+	{
+	Spawn:
+		ACNF CDEFG 5 bright;
+		Stop;
+	}
+}
+

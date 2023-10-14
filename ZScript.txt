@@ -1,0 +1,6 @@
+version "3.5"
+
+#include "zscript/player.txt"
+#include "zscript/weapons/baseballbat.txt"
+#include "zscript/weapons/bomb.txt"
+#include "zscript/weapons/terrorblast.txt"

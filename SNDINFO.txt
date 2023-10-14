@@ -1,0 +1,117 @@
+//ambient sounds
+//continuous sounds
+wind		wind		// Gentle Cold Wind
+cavewind	cavewind	// Eerie Cave Wind
+churn		churn		// Churning
+crickets	crickets	// Crickets
+rainstrm	rainstrm	// Rain and Thunder on Roof
+falls1		falls1		// Waterfall 1
+falls2		falls2		// Waterfall 2
+river		river		// Flowing River
+swamp		swamp		// Swamp Ambience
+trickle		trickle		// Sewer Trickle
+eeryaura	eeryaura	// Eerie Aura
+hideous		hideous		// Hideous Ambience
+housfire	housfire	// House Fire
+labhum		labhum		// Lab Ambience
+ominous		ominous		// Ominous ambience
+hartbeat	hartbeat	// Heartbeat ambience
+jemdrum1	jemdrum1	// haunted drum
+jemdrum2	jemdrum2	// haunted drum
+jemdrum3	jemdrum3	// haunted drum
+jemdrum4	jemdrum4	// haunted drum
+
+//point sounds
+$AMBIENT 1 wind POINT CONTINUOUS 0.5
+$AMBIENT 2 cavewind POINT CONTINUOUS 0.5
+$AMBIENT 3 churn POINT CONTINUOUS 0.5
+$AMBIENT 4 crickets POINT CONTINUOUS 0.5
+$AMBIENT 5 rainstrm POINT CONTINUOUS 0.5
+$AMBIENT 6 falls1 POINT CONTINUOUS 0.5
+$AMBIENT 7 falls2 POINT CONTINUOUS 0.5
+$AMBIENT 8 river POINT CONTINUOUS 0.5
+$AMBIENT 9 swamp POINT CONTINUOUS 0.5
+$AMBIENT 10 trickle POINT CONTINUOUS 0.5
+$AMBIENT 11 eeryaura POINT CONTINUOUS 1
+$AMBIENT 12 hideous POINT CONTINUOUS 1
+$AMBIENT 23 labhum POINT CONTINUOUS 1
+$AMBIENT 24 ominous POINT CONTINUOUS 1
+$AMBIENT 27 hartbeat POINT CONTINUOUS 1
+$AMBIENT 31 jemdrum1 POINT CONTINUOUS 1
+$AMBIENT 32 jemdrum2 POINT CONTINUOUS 1
+$AMBIENT 33 jemdrum3 POINT CONTINUOUS 1
+$AMBIENT 34 jemdrum4 POINT CONTINUOUS 1
+//world sounds
+$AMBIENT 13 wind WORLD CONTINUOUS 0.5
+$AMBIENT 14 cavewind WORLD CONTINUOUS 0.5
+$AMBIENT 15 eeryaura WORLD CONTINUOUS 1
+$AMBIENT 22 housfire WORLD CONTINUOUS 0.5
+$AMBIENT 25 ominous WORLD CONTINUOUS 1
+$AMBIENT 26 swamp WORLD CONTINUOUS 0.5
+
+//random sounds
+dripping 	drips2			//Water Dripping
+mongroan 	mongroan		//monster groan
+monook 		monook			//monster ook
+monhowl 	monhowl			//Monster Howl
+monchutr	monchutr		//monster chutter
+girlscrm	girlscrm		//Girl Scream
+//point sounds
+$AMBIENT 16 dripping POINT RANDOM 5.0 15.0 0.5
+$AMBIENT 17 mongroan POINT RANDOM 10.0 20.0 1.0
+$AMBIENT 18 monook POINT RANDOM 10.0 30.0 0.5
+$AMBIENT 19 monhowl POINT RANDOM 10.0 30.0 0.5
+$AMBIENT 20 monchutr POINT RANDOM 10.0 30.0 0.5
+$AMBIENT 21 girlscrm POINT RANDOM 10.0 60.0 0.5
+
+//ketchup sounds
+$random misc/xdeath		{ misc/xdeath1a misc/xdeath1b misc/xdeath1c misc/xdeath1d misc/xdeath1e misc/xdeath1f misc/xdeath2a misc/xdeath2b misc/xdeath2c misc/xdeath2d misc/xdeath2e misc/xdeath2f misc/xdeath3a misc/xdeath3b misc/xdeath3c misc/xdeath4a misc/xdeath4b misc/xdeath4c }
+misc/xdeath1a			dsxdth1a
+misc/xdeath1b			dsxdth1b
+misc/xdeath1c			dsxdth1c
+misc/xdeath1d			dsxdth1d
+misc/xdeath1e			dsxdth1e
+misc/xdeath1f			dsxdth1f
+$random misc/xdeath1		{ misc/xdeath1a misc/xdeath1b misc/xdeath1c misc/xdeath1d misc/xdeath1e misc/xdeath1f }
+misc/xdeath2a			dsxdth2a
+misc/xdeath2b			dsxdth2b
+misc/xdeath2c			dsxdth2c
+misc/xdeath2d			dsxdth2d
+misc/xdeath2e			dsxdth2e
+misc/xdeath2f			dsxdth2f
+$random misc/xdeath2		{ misc/xdeath2a misc/xdeath2b misc/xdeath2c misc/xdeath2d misc/xdeath2e misc/xdeath2f }
+misc/xdeath3a			dsxdth3a
+misc/xdeath3b			dsxdth3b
+misc/xdeath3c			dsxdth3c
+$random misc/xdeath3		{ misc/xdeath3a misc/xdeath3b misc/xdeath3c }
+misc/xdeath4a			dsxdth4a
+misc/xdeath4b			dsxdth4b
+misc/xdeath4c			dsxdth4c
+$random misc/xdeath4		{ misc/xdeath4a misc/xdeath4b misc/xdeath4c }
+
+$volume misc/xdeath 0.4
+$volume misc/xdeath1 0.4
+$volume misc/xdeath2 0.4
+$volume misc/xdeath3 0.4
+$volume misc/xdeath4 0.4
+
+
+LQDRIP1 LQDRIP1
+LQDRIP2 LQDRIP2
+LQDRIP3 LQDRIP3
+LQDRIP4 LQDRIP4
+LQDRIP5 LQDRIP5
+LQDRIP6 LQDRIP6
+LQDRIP7 LQDRIP7
+LQDRIP8 LQDRIP8
+LQDRIP9 LQDRIP9
+LQDRIP10 LQDRIP10
+LQDRIP11 LQDRIP11
+LQDRIP12 LQDRIP12
+LQDRIP13 LQDRIP13
+LQDRIP14 LQDRIP14
+
+$random blooddrop  { LQDRIP1 LQDRIP2 LQDRIP3 } 
+$random blooddrop2  { LQDRIP4 LQDRIP5 LQDRIP6 LQDRIP7 }
+$random blooddrop3  { LQDRIP8 LQDRIP9 LQDRIP10 LQDRIP11 LQDRIP12 LQDRIP13 LQDRIP14 LQDRIP14 } 
+
