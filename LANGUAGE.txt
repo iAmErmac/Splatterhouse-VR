@@ -31,6 +31,8 @@ GOTREDCARD = "You found a Red Key!";
 GOTYELWCARD = "You found a Gold Key!";
 
 SH_OPTIONS 				= "Splatterhouse Options";
+SH_WEAPON 				= "VR Weapon";
+SH_WEAPON_MODE 			= "Show hands";
 SH_GORE 				= "Gore Options";
 SH_GORE_ENGINE 			= "Select engine you are using";
 SH_GORE_AMOUNT 			= "Blood Amount";

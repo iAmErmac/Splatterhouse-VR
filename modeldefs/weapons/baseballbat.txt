@@ -1,0 +1,80 @@
+
+Model BaseballBat
+{ 
+	Path "models/weapons/baseballbat"
+	Model 0 "bat.md3"
+	Skin 0 "bat.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+
+	//Ready
+	FrameIndex DBID A 0 0
+}
+
+Model BaseballBat
+{ 
+	Path "models/weapons/baseballbat"
+	Model 0 "bat.md3"
+	Skin 0 "bat.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	//Attack
+	FrameIndex DBID B 0 1
+	FrameIndex DBID C 0 2
+	FrameIndex DBID D 0 3
+	FrameIndex DBID E 0 4
+	FrameIndex DBID F 0 5
+	FrameIndex DBID G 0 6
+	FrameIndex DBID H 0 7
+	FrameIndex DBID I 0 8
+	FrameIndex DBID J 0 9
+	FrameIndex DBID K 0 10
+	FrameIndex DBID L 0 11
+	FrameIndex DBID M 0 12
+}
+
+//with hand
+Model BaseballBat
+{ 
+	Path "models/weapons/baseballbat"
+	Model 0 "bat.md3"
+	Skin 0 "bat.png"
+	Model 1 "bat_fist.md3"
+	Skin 1 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+
+	//Ready
+	FrameIndex HBAT A 0 0	FrameIndex HBAT A 1 0
+}
+
+//with hand
+Model BaseballBat
+{ 
+	Path "models/weapons/baseballbat"
+	Model 0 "bat.md3"
+	Skin 0 "bat.png"
+	Model 1 "bat_fist.md3"
+	Skin 1 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	//Attack
+	FrameIndex HBAT B 0 1	FrameIndex HBAT B 1 1
+	FrameIndex HBAT C 0 2	FrameIndex HBAT C 1 2
+	FrameIndex HBAT D 0 3	FrameIndex HBAT D 1 3
+	FrameIndex HBAT E 0 4	FrameIndex HBAT E 1 4
+	FrameIndex HBAT F 0 5	FrameIndex HBAT F 1 5
+	FrameIndex HBAT G 0 6	FrameIndex HBAT G 1 6
+	FrameIndex HBAT H 0 7	FrameIndex HBAT H 1 7
+	FrameIndex HBAT I 0 8	FrameIndex HBAT I 1 8
+	FrameIndex HBAT J 0 9	FrameIndex HBAT J 1 9
+	FrameIndex HBAT K 0 10	FrameIndex HBAT K 1 10
+	FrameIndex HBAT L 0 11	FrameIndex HBAT L 1 11
+	FrameIndex HBAT M 0 12	FrameIndex HBAT M 1 12
+}

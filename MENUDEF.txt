@@ -83,6 +83,18 @@ AddOptionMenu "OptionsMenu"
 OptionMenu "SH_Options"
 {
 	Title "$SH_OPTIONS"
+	
+	StaticText "$SH_WEAPON", "Gold"
+	
+	Option "$SH_WEAPON_MODE", "sh_weapon_mode", "YesNo"
+	StaticText " "
+	
+	StaticText "$SH_DARK", "Gold"
+	
+	Option "$SH_DARK_MODE", "sh_dark_mode", "DarkModeChoice"
+	StaticText "$SH_DARK_MODE_TEXT", "DarkGray"
+	StaticText " "
+	
 	StaticText "$SH_GORE", "Gold"
 
 	Option "$SH_GORE_ENGINE", "isrunningzandronum", "SelectEngineType"
@@ -92,14 +104,8 @@ OptionMenu "SH_Options"
 	StaticText "$SH_GORE_AMOUNT_TEXT", "DarkGray"
 	StaticText " "
 
-	Option "$SH_GORE_JANITOR", "zdoombrutaljanitor", "YesOrNo"
+	Option "$SH_GORE_JANITOR", "zdoombrutaljanitor", "YesNo"
 	StaticText "$SH_GORE_JANITOR_TEXT", "DarkGray"
-	StaticText " "
-	
-	StaticText "$SH_DARK", "Gold"
-	
-	Option "$SH_DARK_MODE", "sh_dark_mode", "DarkModeChoice"
-	StaticText "$SH_DARK_MODE_TEXT", "DarkGray"
 	StaticText " "
 }
 
@@ -110,18 +116,6 @@ OptionValue "BrutalBlood"
 	3, "Lots"
 	4, "Comical"
 	666, "Overdrawn at Blood Bank"
-}
-
-OptionValue "YesOrNo"
-{
-	0, "No"
-	1, "Yes"
-}
-
-OptionValue "YesOrNoFalse"
-{
-	1, "No"
-	0, "Yes"
 }
 
 OptionValue "SelectEngineType"

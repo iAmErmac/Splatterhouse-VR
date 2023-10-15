@@ -1,0 +1,26 @@
+
+material texture "models/weapons/fist/hand.png"
+{
+	shader "shaders/SimSun.fp"
+    normal "models/weapons/fist/hand_N.png" 
+    specular "models/weapons/fist/hand_S.png"
+    glossiness 10
+	specularlevel 5
+}
+
+material texture "models/weapons/baseballbat/hand.png"
+{
+	shader "shaders/SimSun.fp"
+    normal "models/weapons/baseballbat/hand_N.png" 
+    specular "models/weapons/baseballbat/hand_S.png"
+    glossiness 10
+	specularlevel 5
+}
+material texture "models/weapons/baseballbat/bat.png"
+{
+	shader "shaders/SimSun.fp"
+    normal "models/weapons/baseballbat/bat_N.png" 
+    specular "models/weapons/baseballbat/bat_S.png"
+    glossiness 10
+	specularlevel 5
+}

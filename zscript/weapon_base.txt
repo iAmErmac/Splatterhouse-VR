@@ -1,0 +1,29 @@
+
+Class WeaponZ : Weapon
+{
+	action void A_ReplaceSprite(String myvar, String ssprite, bool pickup=false, float sscale=0.7)
+	{
+		int readsetting = CVar.FindCVar(myvar).GetInt();
+		int wsprite = GetSpriteIndex(ssprite);
+
+		if (readsetting && readsetting > 0 && wsprite != -1) {
+			
+			if(pickup)
+			{
+				invoker.sprite = wsprite;
+				invoker.A_SetScale(sscale);
+			}
+			else
+			{
+				if(player)
+				{
+					//int mainhand = !invoker.bOffhandWeapon;
+					//if(mainhand)
+						Player.GetPSprite(PSP_WEAPON).sprite = wsprite;
+					//else
+						//Player.GetPSprite(PSP_OFFHANDWEAPON).sprite = wsprite;
+				}
+			}
+		}
+	}
+}
