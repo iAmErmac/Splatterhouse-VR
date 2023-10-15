@@ -1,7 +1,10 @@
 version "3.5"
 
-#include "zscript/player.txt"
+#include "zscript/weapons/fist.txt"
 #include "zscript/weapons/baseballbat.txt"
+#include "zscript/weapons/chainsaw.txt"
+#include "zscript/weapons/ssg.txt"
 #include "zscript/weapons/bomb.txt"
 #include "zscript/weapons/terrorblast.txt"
+#include "zscript/player.txt"
 #include "zscript/darkdoomz.txt"

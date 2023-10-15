@@ -1,0 +1,57 @@
+
+Class RickChainsaw : Chainsaw replaces Chainsaw
+{
+	Default
+	{
+	//$Category Splat3DWeapons
+	weapon.selectionorder 520;
+	weapon.upsound "weapons/chainsaw/draw";
+	weapon.readysound "weapons/chainsaw/idle";
+	}
+	
+	states
+	{
+	Select:
+		SAWN A 1 A_Raise;
+		loop;
+	Deselect:
+		TNT1 A 0 A_StopsoundEx("Weapon");
+		TNT1 A 0 A_Lower;
+		SAWN A 1 A_Lower;
+		goto deselect+1;
+	Ready:
+		SAWN A 6 A_weaponready;
+		loop;
+	Fire:
+		TNT1 A 0 A_playsound("weapons/chainsaw/start");
+		SAWN BCDEFG 1;
+	Hold:
+		TNT1 A 0 A_playsoundEx("weapons/chainsaw/loop","Weapon",1);
+		TNT1 A 0 A_Jump(128,"Hold1");
+		SAWF A 1 offset(0,32) A_Saw("","weapons/sawhit",5,"ChainsawPuffSpawner");
+		SAWF B 1 offset(-1,33);
+		SAWF A 1 offset(1,31);
+		SAWF B 1 offset(2,30);
+		TNT1 A 0 A_Refire;
+		TNT1 A 0 A_StopsoundEx("Weapon");
+		TNT1 A 0 A_Playsound("weapons/chainsaw/stop");
+		SAWN GFEDCB 1;
+		goto ready;
+	Hold1:
+		TNT1 A 0 A_playsoundEx("weapons/chainsaw/loop","Weapon",1);
+		SAWF A 1 offset(1,31) A_Saw("","weapons/sawhit",2,"ChainsawPuffSpawner");
+		SAWF B 1 offset(0,32);
+		SAWF A 1 offset(2,30);
+		SAWF B 1 offset(-1,33);
+		TNT1 A 0 A_Refire;
+		TNT1 A 0 A_StopsoundEx("Weapon");
+		TNT1 A 0 A_Playsound("weapons/chainsaw/stop");
+		SAWN GFEDCB 1;
+		goto ready;
+	AltFire:
+		RBUT ABC 2;
+		RBUT D 10 A_CustomPunch (20, FALSE, 0, "KickPuff", 96);
+		RBUT EF 6;
+		goto Ready;
+	}
+}

@@ -1,0 +1,2 @@
+
+#include "modeldefs/weapons/fist.txt"
