@@ -20,6 +20,14 @@ Class RickPlayer : PlayerPawn
 	Player.DisplayName "Rick";
 	player.startitem "RickFuryFist";
 	Player.StartItem "ClassID", 1;
+	player.startitem "BaseballBat";
+	player.startitem "RickChainsaw";
+	player.startitem "RickSSG";
+	player.startitem "PotassiumBomb";
+	player.startitem "TerrorBlast";
+	player.startitem "Shell", 50;
+	player.startitem "rocketammo", 100;
+	player.startitem "cell", 600;
 	player.viewheight 48;
 	player.attackzoffset 20;
 	Player.Weaponslot 1, "RickFuryFist";
@@ -29,6 +37,83 @@ Class RickPlayer : PlayerPawn
 	Player.Weaponslot 5, "PotassiumBomb";
 	Player.Weaponslot 6, "TerrorBlast";
 	Player.DisplayName "Rick";
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if(!(player.ReadyWeapon is "RickSSG") && (player.cmd.buttons & BT_ALTATTACK) && !kick_actor)
+		{
+			FLineTraceData ft;
+			double pz = player.mo.height * 0.5 - player.mo.floorclip + player.mo.AttackZOffset * player.crouchFactor;
+			bool hit = player.mo.LineTrace(
+				player.mo.angle,
+				96,
+				player.mo.pitch,
+				offsetz: pz,
+				data: ft
+			);
+
+			if (hit && (ft.HitType == TRACE_HitWall || ft.HitType == TRACE_HitFloor || ft.HitType == TRACE_HitCeiling || ft.HitType == TRACE_HitActor))
+			{
+				actor faceTo;
+				
+				if(ft.HitActor)
+				{
+					let mo = ft.HitActor;
+					kick_target = mo;
+					faceTo = mo;
+				}
+				else
+				{
+					let _puff = Actor.Spawn("RickKickPuff", ft.HitLocation);
+					faceTo = _puff;
+				}
+				kick_actor = Actor.Spawn("RickFoot", (player.mo.pos.xy, player.mo.pos.z + (50 * player.crouchFactor) - 25));
+				kick_actor.A_SetAngle(player.mo.angle);
+				kick_actor.A_SetPitch(GetPitchTo(kick_actor, faceTo, 0, faceTo.Height * 3/4));
+				kick_delay = 0;
+			}
+		}
+		
+		if(kick_actor)
+		{
+			kick_actor.SetOrigin((player.mo.pos.xy, player.mo.pos.z + (50 * player.crouchFactor) - 25), false);
+			kick_actor.A_SetAngle(player.mo.angle);
+			
+			if(kick_delay > 3) return;
+			
+			kick_delay++;
+			if(kick_delay == 3)
+			{
+				if(kick_target)
+				{
+					target = kick_target;
+					A_PlaySound("weapons/fist/punch", CHAN_WEAPON);
+					player.mo.A_DamageTarget(random(16,24), "Melee");
+					kick_target = null;
+				}
+				else
+				{
+					A_PlaySound("weapons/fist/hitwall", CHAN_WEAPON);
+				}
+			}
+		}
+	}
+	
+	private double GetPitchTo(Actor source, Actor target, double zOfs = 0, double targZOfs = 0, bool absolute = false)
+	{
+		Vector3 origin = (source.pos.xy, source.pos.z - source.floorClip + zOfs);
+		Vector3 dest = (target.pos.xy, target.pos.z - target.floorClip + targZOfs);
+
+		Vector3 diff;
+		if (!absolute)
+			diff = level.Vec3Diff(origin, dest);
+		else
+			diff = dest - origin;
+
+		return -atan2(diff.z, diff.xy.Length());
 	}
   
 	states
@@ -54,7 +139,18 @@ Class RickPlayer : PlayerPawn
 		RICK F 3 A_Pain;
 		Goto Spawn;
 	Missile:
+		RICK E 0 {
+			if(invoker.player.ReadyWeapon is "RickSSG" || invoker.player.ReadyWeapon is "TerrorBlast")
+				return ResolveState("MissileBright");
+			else
+				return ResolveState(null);
+		}
 		RICK E 12;
+		Goto Spawn;
+	MissileBright:
+		RICK E 4 A_AttachLightDef("WeaponFlash1", "MuzzleFlashYellow");
+		RICK E 0 A_RemoveLight("WeaponFlash1");
+		RICK E 8;
 		Goto Spawn;
 	Melee:
 		RICK E 6 BRIGHT;
@@ -68,39 +164,43 @@ Class RickPlayer : PlayerPawn
 		RICK J -1;
 		Stop;
 	XDeath:
-		TNT1 AAAAAA 0 A_CustomMissile ("CeilBloodLauncherLong", 0, 0, random (0, 360), 2, random (50, 130));
-		TNT1 AA 0 A_CustomMissile ("XDeath1", 32, 0, random (0, 360), 2, random (0, 90));
-		TNT1 AA 0 A_CustomMissile ("XDeath2", 32, 0, random (0, 360), 2, random (0, 90));
-		TNT1 AA 0 A_CustomMissile ("XDeath3", 32, 0, random (0, 360), 2, random (0, 90));
-		TNT1 A 0 A_CustomMissile ("XDeath4", 32, 0, random (0, 360), 2, random (0, 90));
-		TNT1 A 0 A_CustomMissile ("XDeath5", 32, 0, random (0, 360), 2, random (0, 90));
-		TNT1 A 0 A_CustomMissile ("Brains3", 40, 0, random (0, 360), 2, random (-5, 5));
-		TNT1 A 0 A_CustomMissile ("XDeathOrgan1", 40, 0, random (0, 360), 2, random (-5, 5));
-		TNT1 A 0 A_CustomMissile ("XDeathOrgan2", 40, 0, random (0, 360), 2, random (-5, 5));
-		TNT1 AAAA 0 A_CustomMissile ("SmallBrainPiece", 32, 0, random (0, 360), 2, random (0, 90));
-		TNT1 AAAAAAAA 0 A_CustomMissile ("SuperWallRedBlood", 40, 0, random (0, 360), 2, random (-5, 5));
-		TNT1 AAAA 0 A_CustomMissile ("Instestin", 32, 0, random (0, 360), 2, random (0, 90));
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Bloodmist", 35, 0, random (0, 360), 2, random (0, 90));
-		TNT1 AAAAAA 0 bright A_CustomMissile ("SuperGoreSpawner", 32, 0, random (0, 360), 2, random (50, 130));
+		TNT1 AAAAAA 0 A_SpawnProjectile ("CeilBloodLauncherLong", 0, 0, random (0, 360), 2, random (50, 130));
+		TNT1 AA 0 A_SpawnProjectile ("XDeath1", 32, 0, random (0, 360), 2, random (0, 90));
+		TNT1 AA 0 A_SpawnProjectile ("XDeath2", 32, 0, random (0, 360), 2, random (0, 90));
+		TNT1 AA 0 A_SpawnProjectile ("XDeath3", 32, 0, random (0, 360), 2, random (0, 90));
+		TNT1 A 0 A_SpawnProjectile ("XDeath4", 32, 0, random (0, 360), 2, random (0, 90));
+		TNT1 A 0 A_SpawnProjectile ("XDeath5", 32, 0, random (0, 360), 2, random (0, 90));
+		TNT1 A 0 A_SpawnProjectile ("Brains3", 40, 0, random (0, 360), 2, random (-5, 5));
+		TNT1 A 0 A_SpawnProjectile ("XDeathOrgan1", 40, 0, random (0, 360), 2, random (-5, 5));
+		TNT1 A 0 A_SpawnProjectile ("XDeathOrgan2", 40, 0, random (0, 360), 2, random (-5, 5));
+		TNT1 AAAA 0 A_SpawnProjectile ("SmallBrainPiece", 32, 0, random (0, 360), 2, random (0, 90));
+		TNT1 AAAAAAAA 0 A_SpawnProjectile ("SuperWallRedBlood", 40, 0, random (0, 360), 2, random (-5, 5));
+		TNT1 AAAA 0 A_SpawnProjectile ("Instestin", 32, 0, random (0, 360), 2, random (0, 90));
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnProjectile ("Bloodmist", 35, 0, random (0, 360), 2, random (0, 90));
+		TNT1 AAAAAA 0 bright A_SpawnProjectile ("SuperGoreSpawner", 32, 0, random (0, 360), 2, random (50, 130));
 		XMED A 5 A_Stop;
 		XMED B 5 A_XScream;
 		XMED C 5;
 		XMED D 5 A_NoBlocking;
 		XMED E 5;
-		TNT1 A 0 A_CustomMissile ("BigBloodSpot", 4, 0, random (0, 360), 2, random (0, 90));
+		TNT1 A 0 A_SpawnProjectile ("BigBloodSpot", 4, 0, random (0, 360), 2, random (0, 90));
 		XMED E -1;
 		Stop;
 	Crush:
 		TNT1 A 0 A_PlaySound("misc/xdeath4");
-		TNT1 AAAAAAAAAAAAA 0 A_CustomMissile ("Bloodmist", 0, random (-30, 30), random (0, 360), 2, random (1, 45));
-		TNT1 AA 0 A_CustomMissile ("XDeath2", 0, 0, random (0, 360), 2, random (0, 90));
-		TNT1 AA 0 A_CustomMissile ("XDeath1", 0, 0, random (0, 360), 2, random (0, 90));
-		TNT1 A 0 A_CustomMissile ("Brains3", 0, random (-30, 32), random (0, 360), 2, random (-5, 5));
-		POL5 EEEEE 1 A_CustomMissile ("CeilBloodLauncherLong", 0, 0, random (0, 360), 2, random (50, 130));
-		TNT1 A 0 A_CustomMissile ("BigBloodSpot", 0, 0, random (0, 360), 2, random (0, 90));
+		TNT1 AAAAAAAAAAAAA 0 A_SpawnProjectile ("Bloodmist", 0, random (-30, 30), random (0, 360), 2, random (1, 45));
+		TNT1 AA 0 A_SpawnProjectile ("XDeath2", 0, 0, random (0, 360), 2, random (0, 90));
+		TNT1 AA 0 A_SpawnProjectile ("XDeath1", 0, 0, random (0, 360), 2, random (0, 90));
+		TNT1 A 0 A_SpawnProjectile ("Brains3", 0, random (-30, 32), random (0, 360), 2, random (-5, 5));
+		POL5 EEEEE 1 A_SpawnProjectile ("CeilBloodLauncherLong", 0, 0, random (0, 360), 2, random (50, 130));
+		TNT1 A 0 A_SpawnProjectile ("BigBloodSpot", 0, 0, random (0, 360), 2, random (0, 90));
 		POL5 E -1;
 		Stop;
 	}
+	
+	private actor kick_target;
+	private actor kick_actor;
+	private int kick_delay;
 }
 
 Class Step : Inventory
@@ -308,5 +408,62 @@ Class DavidSave : JennySpirit //31994
 	Pickup:
 		TNT1 A 0 A_GiveInventory("BlueArmorForJennySpirit", 1);
 		TNT1 A 0 A_GiveInventory("JennySpiritHealth", 1);
+	}
+}
+
+Class RickFoot : Actor
+{
+	Default
+	{
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +DONTSPLASH
+    +CLIENTSIDEONLY
+    +NOINTERACTION
+	+NOGRAVITY
+	+THRUACTORS
+	-COUNTKILL
+	+FRIENDLY
+	+NOCLIP
+	Radius 1;
+	Height 1;
+	Scale 0.4;
+	Mass 0;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		KICK BCDE 1;
+		KICK F 12;
+		KICK E 6;
+		KICK DCB 2;
+	Death:
+		TNT1 A 1;
+		Stop;
+	}
+}
+
+Class RickKickPuff : FuryFistPuff
+{
+	Default
+	{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOEXTREMEDEATH
+	+PUFFONACTORS
+	RenderStyle "Translucent";
+	Alpha 0.6;
+	VSpeed 1;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		PUFF AAAA 0 A_SpawnProjectile ("MeleeSmoke", 0, 0, random (0, 360), 2, random (0, 360));
+		PUFF ABCD 2;
+		Stop;
 	}
 }

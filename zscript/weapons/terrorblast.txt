@@ -19,27 +19,22 @@ Class TerrorBlast : Weapon //31988
 
 	States
 	{
-	Spawn:
-		SPIR ABCD 6 Bright;
-		loop;
 	Ready:
 		RHAN A 1 A_WeaponReady;
 		loop;
 	Deselect:
-		RHAN B 1 A_Lower;
+		RHAN A 1 A_Lower(160);
 		loop;
 	Select: 
-		RHAN B 1 A_Raise;
+		RHAN A 1 A_Raise(160);
 		loop;
 	Fire:
-		RHAN B 2 A_firecustommissile("HellBlast",0,1);
+		RHAN B 2 A_FireProjectile("HellBlast", 0, 1);
 		RHAN B 2 A_CheckReload;
 		goto Ready;
-	AltFire:
-		RBUT ABC 2;
-		RBUT D 10 A_CustomPunch (20, FALSE, 0, "KickPuff", 96);
-		RBUT EF 6;
-		goto Ready;
+	Spawn:
+		SPIR ABCD 6 Bright;
+		loop;
 	}
 }
 
@@ -81,7 +76,8 @@ CLass HellBlast : FastProjectile
 	states
 	{
 	Spawn:
-		TNT1 A 1 bright A_SpawnItemEx("railtrail", 0, 0, 0,0,0,0,0,128);
+		TNT1 A 0;
+		TNT1 A 1 bright A_SpawnItemEx("railtrail", -50, 0, 0,0,0,0,0,128);
 		loop;
 	Death:
 		TNT1 A 2 bright A_SpawnItemEx("railpow", 0, 0, 0,0,0,0,0,128);

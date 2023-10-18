@@ -1,0 +1,66 @@
+
+Model PotassiumBomb
+{ 
+	Path "models/weapons/vial"
+	Model 0 "vial.md3"
+	SurfaceSkin 0 0 "glass.png"
+	SurfaceSkin 0 1 "red_liquid1.png"
+	SurfaceSkin 0 2 "cork.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+
+	//Ready
+	FrameIndex BOMG A 0 0
+	
+	//Attack
+	FrameIndex BOMG B 0 1
+	FrameIndex BOMG C 0 2
+	FrameIndex BOMG D 0 3
+	
+	Skin 0 "empty.png";
+	
+	FrameIndex BOMG E 0 4
+	FrameIndex BOMG F 0 5
+	FrameIndex BOMG G 0 6
+	FrameIndex BOMG H 0 7
+	FrameIndex BOMG I 0 8
+	
+	FrameIndex BOMG J 0 8
+}
+
+//With hand
+Model PotassiumBomb
+{ 
+	Path "models/weapons/vial"
+	Model 0 "vial.md3"
+	SurfaceSkin 0 0 "glass.png"
+	SurfaceSkin 0 1 "red_liquid1.png"
+	SurfaceSkin 0 2 "cork.png"
+	Model 1 "vial_fist.md3"
+	Skin 1 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+	DONTCULLBACKFACES
+
+	//Ready
+	FrameIndex BOMH A 0 0	FrameIndex BOMH A 1 0
+	
+	//Attack
+	FrameIndex BOMH B 0 1	FrameIndex BOMH B 1 1
+	FrameIndex BOMH C 0 2	FrameIndex BOMH C 1 2
+	FrameIndex BOMH D 0 3	FrameIndex BOMH D 1 3
+	
+	Skin 0 "empty.png";
+	
+	FrameIndex BOMH E 0 4	FrameIndex BOMH E 1 4
+	FrameIndex BOMH F 0 5	FrameIndex BOMH F 1 5
+	FrameIndex BOMH G 0 6	FrameIndex BOMH G 1 6
+	FrameIndex BOMH H 0 7	FrameIndex BOMH H 1 7
+	FrameIndex BOMH I 0 8	FrameIndex BOMH I 1 8
+	
+	FrameIndex BOMH J 0 8	FrameIndex BOMH J 1 8
+}

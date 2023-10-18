@@ -1,0 +1,8 @@
+
+pointlight MuzzleFlashYellow
+{
+    color 0.98 0.81 0.34
+    size 300
+    offset 0 0 0
+	attenuate 1
+}

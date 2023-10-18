@@ -3,6 +3,8 @@ Class RickFuryFist : Fist replaces Fist
 	Default
 	{
 	weapon.selectionorder 570;
+	+WEAPON.MELEEWEAPON;
+	+WEAPON.WIMPY_WEAPON;
 	+WEAPON.NOALERT;
 	Tag "PUNCH";
 	}
@@ -20,7 +22,7 @@ Class RickFuryFist : Fist replaces Fist
 		loop;
 	Fire:
 		FIST BC 1;
-		TNT1 A 0 A_playsound("weapons/fist/swing");
+		FIST A 0 A_playsound("weapons/fist/swing");
 		FIST DE 1;
 		FIST E 0 A_jumpifinventory("PowerStrength",1,"PunchStrong");
 		FIST E 3 A_Custompunch(10,0,1,"FuryFistPuff",96);
@@ -31,7 +33,7 @@ Class RickFuryFist : Fist replaces Fist
 		goto ready;
 	PunchStrong:
 		FIST BC 1;
-		TNT1 A 0 A_playsound("weapons/fist/swing");
+		FIST C 0 A_playsound("weapons/fist/swing");
 		FIST DE 1;
 		RFIS E 3 A_Custompunch(40,0,1,"FistPuffStrong");
 		FIST FGHI 1;
@@ -39,11 +41,6 @@ Class RickFuryFist : Fist replaces Fist
 		FIST A 0 A_Refire;
 		FIST A 3;
 		goto ready;
-	AltFire:
-		RBUT ABC 2;
-		RBUT D 10 A_CustomPunch (20, FALSE, 0, "KickPuff", 96);
-		RBUT EF 6;
-		goto Ready;
 	}
 }
 

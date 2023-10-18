@@ -1,26 +1,196 @@
 
 material texture "models/weapons/fist/hand.png"
 {
-	shader "shaders/SimSun.fp"
     normal "models/weapons/fist/hand_N.png" 
     specular "models/weapons/fist/hand_S.png"
     glossiness 10
 	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+}
+
+material texture "models/weapons/foot/foot.png"
+{
+    normal "models/weapons/fist/foot_N.png" 
+    specular "models/weapons/fist/foot_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+}
+
+material texture "models/weapons/foot/shoe.png"
+{
+	shader "shaders/SimSun.fp"
 }
 
 material texture "models/weapons/baseballbat/hand.png"
 {
-	shader "shaders/SimSun.fp"
     normal "models/weapons/baseballbat/hand_N.png" 
     specular "models/weapons/baseballbat/hand_S.png"
     glossiness 10
 	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
 }
 material texture "models/weapons/baseballbat/bat.png"
 {
-	shader "shaders/SimSun.fp"
     normal "models/weapons/baseballbat/bat_N.png" 
     specular "models/weapons/baseballbat/bat_S.png"
+    glossiness 5
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+}
+
+material texture "models/weapons/chainsaw/hand.png"
+{
+    normal "models/weapons/chainsaw/hand_N.png" 
+    specular "models/weapons/chainsaw/hand_S.png"
     glossiness 10
 	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+}
+material texture "models/weapons/chainsaw/chainsaw.png"
+{
+    normal "models/weapons/chainsaw/chainsaw_N.png" 
+    specular "models/weapons/chainsaw/chainsaw_S.png"
+    glossiness 5
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+}
+material texture "models/weapons/chainsaw/saw1.png"
+{
+	shader "shaders/SimSun.fp"
+}
+material texture "models/weapons/chainsaw/saw2.png"
+{
+	shader "shaders/SimSun.fp"
+}
+
+material texture "models/weapons/ssg/hand.png"
+{
+    normal "models/weapons/ssg/hand_N.png" 
+    specular "models/weapons/ssg/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+}
+material texture "models/weapons/ssg/shotgun.png"
+{
+    normal "models/weapons/ssg/shotgun_N.png" 
+    specular "models/weapons/ssg/shotgun_S.png"
+    glossiness 5
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+}
+
+material texture "models/weapons/vial/hand.png"
+{
+    normal "models/weapons/vial/hand_N.png" 
+    specular "models/weapons/vial/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+}
+material texture "models/weapons/vial/glass.png"
+{
+    normal "models/weapons/vial/glass_N.png" 
+    specular "models/weapons/vial/glass_S.png"
+    glossiness 10
+	specularlevel 10
+}
+
+material texture "models/weapons/terrorblast/hand.png"
+{
+    normal "models/weapons/terrorblast/hand_N.png" 
+    specular "models/weapons/terrorblast/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+	brightmap "models/weapons/terrorblast/hand_BM.png"
+	
+}
+material texture "models/weapons/terrorblast/hand2.png"
+{
+    normal "models/weapons/terrorblast/hand_N.png" 
+    specular "models/weapons/terrorblast/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+	brightmap "models/weapons/terrorblast/hand2_BM.png"
+	
+}
+material texture "models/weapons/terrorblast/hand3.png"
+{
+    normal "models/weapons/terrorblast/hand_N.png" 
+    specular "models/weapons/terrorblast/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+	brightmap "models/weapons/terrorblast/hand3_BM.png"
+	
+}
+material texture "models/weapons/terrorblast/hand4.png"
+{
+    normal "models/weapons/terrorblast/hand_N.png" 
+    specular "models/weapons/terrorblast/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+	brightmap "models/weapons/terrorblast/hand4_BM.png"
+	
+}
+material texture "models/weapons/terrorblast/hand5.png"
+{
+    normal "models/weapons/terrorblast/hand_N.png" 
+    specular "models/weapons/terrorblast/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+	brightmap "models/weapons/terrorblast/hand5_BM.png"
+	
+}
+material texture "models/weapons/terrorblast/hand6.png"
+{
+    normal "models/weapons/terrorblast/hand_N.png" 
+    specular "models/weapons/terrorblast/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+	brightmap "models/weapons/terrorblast/hand6_BM.png"
+	
+}
+material texture "models/weapons/terrorblast/hand7.png"
+{
+    normal "models/weapons/terrorblast/hand_N.png" 
+    specular "models/weapons/terrorblast/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+	brightmap "models/weapons/terrorblast/hand7_BM.png"
+	
+}
+material texture "models/weapons/terrorblast/hand8.png"
+{
+    normal "models/weapons/terrorblast/hand_N.png" 
+    specular "models/weapons/terrorblast/hand_S.png"
+    glossiness 10
+	specularlevel 5
+	
+	shader "shaders/SimSun.fp"
+	brightmap "models/weapons/terrorblast/hand8_BM.png"
+	
 }

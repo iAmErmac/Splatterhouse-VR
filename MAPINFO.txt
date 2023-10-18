@@ -2,7 +2,7 @@ Gameinfo
 {
 	PlayerClasses = "RickPlayer"
 	quitsound = "quitter/quit"
-	titlemusic = "SplatTtl"
+	titlemusic = "SPLMUTTL"
 	intermissionmusic = "SplatTtl"
 	finalemusic = "SplatFin"
 	AddEventHandlers = "SHDarkness_Handler"

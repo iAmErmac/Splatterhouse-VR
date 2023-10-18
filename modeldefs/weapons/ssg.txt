@@ -1,0 +1,175 @@
+
+Model RickSSG
+{ 
+	Path "models/weapons/ssg"
+	Model 0 "shotgun.md3"
+	Skin 0 "shotgun.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+
+	//Ready
+	FrameIndex SH2N A 0 0
+}
+
+Model RickSSG
+{ 
+	Path "models/weapons/ssg"
+	Model 0 "shotgun.md3"
+	Skin 0 "shotgun.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	//Fire both barrels
+	FrameIndex SH2N B 0 1
+	FrameIndex SH2N C 0 2
+	FrameIndex SH2N D 0 3
+	FrameIndex SH2N E 0 4
+	
+	//Fire left barrel
+	FrameIndex SH2N F 0 5
+	FrameIndex SH2N G 0 6
+	FrameIndex SH2N H 0 7
+	FrameIndex SH2N I 0 8
+	
+	//Fire right barrel
+	FrameIndex SH2N J 0 9
+	FrameIndex SH2N K 0 10
+	FrameIndex SH2N L 0 11
+	FrameIndex SH2N M 0 12
+}
+
+Model RickSSG
+{ 
+	Path "models/weapons/ssg"
+	Model 0 "shotgun.md3"
+	Skin 0 "shotgun.png"
+	Model 1 "shotgun_shell.md3"
+	Skin 1 "shells.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+
+	//Open barrel
+	FrameIndex SH2R A 0 13	FrameIndex SH2R A 1 13
+	FrameIndex SH2R B 0 14	FrameIndex SH2R B 1 14
+	FrameIndex SH2R C 0 15	FrameIndex SH2R C 1 15
+
+	//Eject shell
+	FrameIndex SH2R D 0 16	FrameIndex SH2R D 1 16
+	FrameIndex SH2R E 0 17	FrameIndex SH2R E 1 17
+	FrameIndex SH2R F 0 18	FrameIndex SH2R F 1 18
+	FrameIndex SH2R G 0 19	FrameIndex SH2R G 1 19
+	FrameIndex SH2R H 0 20	FrameIndex SH2R H 1 20
+	
+	//Empty chamber
+	FrameIndex SH2R I 0 21	FrameIndex SH2R I 1 99
+	
+	//Insert shell
+	FrameIndex SH2R J 0 21	FrameIndex SH2R J 1 21
+	FrameIndex SH2R K 0 22	FrameIndex SH2R K 1 22
+	FrameIndex SH2R L 0 23	FrameIndex SH2R L 1 23
+	
+	//Close barrel
+	FrameIndex SH2R M 0 24	FrameIndex SH2R M 1 24
+	FrameIndex SH2R N 0 25	FrameIndex SH2R N 1 25
+	FrameIndex SH2R O 0 26	FrameIndex SH2R O 1 26
+}
+
+Model RickSSG
+{ 
+	Path "models/weapons/ssg"
+	Model 0 "shotgun_mf.md3"
+	SurfaceSkin 0 0 "muzzle_flash.png"
+	SurfaceSkin 0 1 "muzzle_flash.png"
+	SurfaceSkin 0 2 "muzzle_flash2.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	FrameIndex SHMF A 0 0
+	FrameIndex SHMF B 0 5
+}
+
+//With hand
+Model RickSSG
+{ 
+	Path "models/weapons/ssg"
+	Model 0 "shotgun.md3"
+	Skin 0 "shotgun.png"
+	Model 1 "shotgun_fist.md3"
+	Skin 1 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+
+	//Ready
+	FrameIndex SH2H A 0 0	FrameIndex SH2H A 1 0
+}
+
+Model RickSSG
+{ 
+	Path "models/weapons/ssg"
+	Model 0 "shotgun.md3"
+	Skin 0 "shotgun.png"
+	Model 1 "shotgun_fist.md3"
+	Skin 1 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	//Fire both barrels
+	FrameIndex SH2H B 0 1	FrameIndex SH2H B 1 1
+	FrameIndex SH2H C 0 2	FrameIndex SH2H C 1 2
+	FrameIndex SH2H D 0 3	FrameIndex SH2H D 1 3
+	FrameIndex SH2H E 0 4	FrameIndex SH2H E 1 4
+	
+	//Fire left barrel
+	FrameIndex SH2H F 0 5	FrameIndex SH2H F 1 5
+	FrameIndex SH2H G 0 6	FrameIndex SH2H G 1 6
+	FrameIndex SH2H H 0 7	FrameIndex SH2H H 1 7
+	FrameIndex SH2H I 0 8	FrameIndex SH2H I 1 8
+	
+	//Fire right barrel
+	FrameIndex SH2H J 0 9	FrameIndex SH2H J 1 9
+	FrameIndex SH2H K 0 10	FrameIndex SH2H K 1 10
+	FrameIndex SH2H L 0 11	FrameIndex SH2H L 1 11
+	FrameIndex SH2H M 0 12	FrameIndex SH2H M 1 12
+}
+
+Model RickSSG
+{ 
+	Path "models/weapons/ssg"
+	Model 0 "shotgun.md3"
+	Skin 0 "shotgun.png"
+	Model 1 "shotgun_fist.md3"
+	Skin 1 "hand.png"
+	Model 2 "shotgun_shell.md3"
+	Skin 2 "shells.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+
+	//Open barrel
+	FrameIndex SHRH A 0 13	FrameIndex SHRH A 1 13	FrameIndex SHRH A 2 13
+	FrameIndex SHRH B 0 14	FrameIndex SHRH B 1 14	FrameIndex SHRH B 2 14
+	FrameIndex SHRH C 0 15	FrameIndex SHRH C 1 15	FrameIndex SHRH C 2 15
+
+	//Eject shell
+	FrameIndex SHRH D 0 16	FrameIndex SHRH D 1 16	FrameIndex SHRH D 2 16
+	FrameIndex SHRH E 0 17	FrameIndex SHRH E 1 17	FrameIndex SHRH E 2 17
+	FrameIndex SHRH F 0 18	FrameIndex SHRH F 1 18	FrameIndex SHRH F 2 18
+	FrameIndex SHRH G 0 19	FrameIndex SHRH G 1 19	FrameIndex SHRH G 2 19
+	FrameIndex SHRH H 0 20	FrameIndex SHRH H 1 20	FrameIndex SHRH H 2 20
+	
+	//Empty chamber
+	FrameIndex SHRH I 0 21	FrameIndex SHRH I 1 21	FrameIndex SHRH I 2 99
+	
+	//Insert shell
+	FrameIndex SHRH J 0 21	FrameIndex SHRH J 1 21	FrameIndex SHRH J 2 21
+	FrameIndex SHRH K 0 22	FrameIndex SHRH K 1 22	FrameIndex SHRH K 2 22
+	FrameIndex SHRH L 0 23	FrameIndex SHRH L 1 23	FrameIndex SHRH L 2 23
+	
+	//Close barrel
+	FrameIndex SHRH M 0 24	FrameIndex SHRH M 1 24	FrameIndex SHRH M 2 24
+	FrameIndex SHRH N 0 25	FrameIndex SHRH N 1 25	FrameIndex SHRH N 2 25
+	FrameIndex SHRH O 0 26	FrameIndex SHRH O 1 26	FrameIndex SHRH O 2 26
+}

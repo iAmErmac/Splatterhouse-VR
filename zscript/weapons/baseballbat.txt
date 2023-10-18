@@ -40,11 +40,6 @@ Class BaseballBat : WeaponZ //31977
 		#### LM 1;
 		#### A 10;
 		goto Ready;
-	AltFire:
-		RBUT ABC 2;
-		RBUT D 10 A_CustomPunch (20, FALSE, 0, "KickPuff", 96);
-		RBUT EF 6;
-		goto Ready;
 	Spawn:
 		SPBT A -1;
 		Stop;

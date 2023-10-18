@@ -1,2 +1,3 @@
 
+#include "gldefs/dynlights.txt"
 #include "gldefs/weapons.txt"

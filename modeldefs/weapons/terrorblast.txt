@@ -1,0 +1,15 @@
+
+Model TerrorBlast
+{ 
+	Path "models/weapons/terrorblast"
+	Model 0 "terrorblast.md3"
+	Skin 0 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+
+	//Ready
+	FrameIndex RHAN A 0 0
+	
+	Skin 0 "hand8.png"
+	FrameIndex RHAN B 0 1
+}

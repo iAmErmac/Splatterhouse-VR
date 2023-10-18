@@ -1,0 +1,22 @@
+
+Model RickFoot
+{ 
+	Path "models/weapons/foot"
+	Model 0 "foot.md3"
+	SurfaceSkin 0 0 "shoe.png"
+	SurfaceSkin 0 1 "foot.png"
+	Scale 1.0 1.0 1.0
+	Offset 0.0 12.0 0.0
+	
+	USEACTORPITCH
+
+	FrameIndex KICK A 0 0
+	FrameIndex KICK B 0 1
+	FrameIndex KICK C 0 2
+	FrameIndex KICK D 0 3
+	FrameIndex KICK E 0 4
+	
+	NOINTERPOLATION
+	
+	FrameIndex KICK F 0 5
+}

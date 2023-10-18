@@ -1,0 +1,21 @@
+
+Texture "models/weapons/vial/red_liquid1.png"
+    pic "models/weapons/vial/red_liquid1.png" tics 16
+    pic "models/weapons/vial/red_liquid2.png" tics 16
+    pic "models/weapons/vial/red_liquid3.png" tics 16
+	
+Texture "models/weapons/terrorblast/hand.png"
+    pic "models/weapons/terrorblast/hand.png" tics 6
+    pic "models/weapons/terrorblast/hand2.png" tics 6
+    pic "models/weapons/terrorblast/hand3.png" tics 6
+    pic "models/weapons/terrorblast/hand4.png" tics 6
+    pic "models/weapons/terrorblast/hand5.png" tics 6
+    pic "models/weapons/terrorblast/hand6.png" tics 6
+    pic "models/weapons/terrorblast/hand7.png" tics 6
+    pic "models/weapons/terrorblast/hand8.png" tics 16
+    pic "models/weapons/terrorblast/hand7.png" tics 6
+    pic "models/weapons/terrorblast/hand6.png" tics 6
+    pic "models/weapons/terrorblast/hand5.png" tics 6
+    pic "models/weapons/terrorblast/hand4.png" tics 6
+    pic "models/weapons/terrorblast/hand3.png" tics 6
+    pic "models/weapons/terrorblast/hand2.png" tics 6

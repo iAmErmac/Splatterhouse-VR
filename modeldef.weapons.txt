@@ -1,3 +1,8 @@
 
 #include "modeldefs/weapons/fist.txt"
+#include "modeldefs/weapons/foot.txt"
 #include "modeldefs/weapons/baseballbat.txt"
+#include "modeldefs/weapons/chainsaw.txt"
+#include "modeldefs/weapons/ssg.txt"
+#include "modeldefs/weapons/bomb.txt"
+#include "modeldefs/weapons/terrorblast.txt"

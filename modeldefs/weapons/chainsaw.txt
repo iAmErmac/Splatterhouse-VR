@@ -1,0 +1,89 @@
+
+Model RickChainsaw
+{ 
+	Path "models/weapons/chainsaw"
+	Model 0 "chainsaw.md3"
+	SurfaceSkin 0 0 "chainsaw.png"
+	SurfaceSkin 0 1 "chainsaw.png"
+	SurfaceSkin 0 2 "saw1.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+
+	//Ready
+	FrameIndex SAWN A 0 0
+	FrameIndex SAWN B 0 1
+}
+
+Model RickChainsaw
+{ 
+	Path "models/weapons/chainsaw"
+	Model 0 "chainsaw.md3"
+	SurfaceSkin 0 0 "chainsaw.png"
+	SurfaceSkin 0 1 "chainsaw.png"
+	SurfaceSkin 0 2 "saw1.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+
+	//Attack
+	FrameIndex SAWN C 0 2
+	FrameIndex SAWN D 0 3
+	FrameIndex SAWN E 0 4
+	FrameIndex SAWN F 0 5
+	FrameIndex SAWN G 0 6
+	FrameIndex SAWN H 0 7
+	
+	//Hold
+	FrameIndex SAWN I 0 7
+	
+	SurfaceSkin 0 2 "saw2.png"
+	FrameIndex SAWN J 0 7
+}
+
+//With hand
+Model RickChainsaw
+{ 
+	Path "models/weapons/chainsaw"
+	Model 0 "chainsaw.md3"
+	SurfaceSkin 0 0 "chainsaw.png"
+	SurfaceSkin 0 1 "chainsaw.png"
+	SurfaceSkin 0 2 "saw.png"
+	Model 1 "chainsaw_fist.md3"
+	Skin 1 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+
+	//Ready
+	FrameIndex SAWH A 0 0	FrameIndex SAWH A 1 0
+	FrameIndex SAWH B 0 1	FrameIndex SAWH B 1 1
+}
+
+Model RickChainsaw
+{ 
+	Path "models/weapons/chainsaw"
+	Model 0 "chainsaw.md3"
+	SurfaceSkin 0 0 "chainsaw.png"
+	SurfaceSkin 0 1 "chainsaw.png"
+	SurfaceSkin 0 2 "saw.png"
+	Model 1 "chainsaw_fist.md3"
+	Skin 1 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+
+	//Attack
+	FrameIndex SAWH C 0 2	FrameIndex SAWH C 1 2
+	FrameIndex SAWH D 0 3	FrameIndex SAWH D 1 3
+	FrameIndex SAWH E 0 4	FrameIndex SAWH E 1 4
+	FrameIndex SAWH F 0 5	FrameIndex SAWH F 1 5
+	FrameIndex SAWH G 0 6	FrameIndex SAWH G 1 6
+	FrameIndex SAWH H 0 7	FrameIndex SAWH H 1 7
+	
+	//Hold
+	FrameIndex SAWH I 0 7	FrameIndex SAWH I 1 7
+	
+	SurfaceSkin 0 2 "saw2.png"
+	FrameIndex SAWH J 0 7	FrameIndex SAWH J 1 8
+}
