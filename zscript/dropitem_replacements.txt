@@ -1,0 +1,438 @@
+Class SHItemDropEvent : EventHandler
+{
+	override void WorldLoaded(WorldEvent event)
+	{
+		_isTitlemap = CheckTitlemap();
+	}
+	
+	override void CheckReplacement(ReplaceEvent e)
+	{
+		if(_isTitlemap) return;
+		
+		if(GameInfo.GameType & GAME_Doom)
+		{
+			//weapons
+			if(e.Replacee is "Fist") 				e.Replacement = 'RickFuryFist';
+			if(e.Replacee is "Shotgun") 			e.Replacement = 'BaseballBatPickup';
+			if(e.Replacee is "Chainsaw") 			e.Replacement = 'RickChainsaw';
+			if(e.Replacee is "SuperShotgun") 		e.Replacement = 'RickSSG';
+			if(e.Replacee is "RocketLauncher") 		e.Replacement = 'PotassiumBombPickup';
+			if(e.Replacee is "PlasmaRifle") 		e.Replacement = 'TerrorBlast';
+			//ammo
+			if(e.Replacee is "RocketBox") 			e.Replacement = 'RocketBox2';
+			//items
+			if(e.Replacee is "HealthBonus") 		e.Replacement = 'HalfHeart';
+			if(e.Replacee is "ArmorBonus") 			e.Replacement = 'HalfWill';
+			if(e.Replacee is "SoulSphere") 			e.Replacement = 'JennySpirit';
+			if(e.Replacee.GetClassName() == "MegaSphere") 			e.Replacement = 'DavidSave';
+		}
+	}
+	
+	override void WorldThingDied(WorldEvent e)
+	{
+		if(e.thing && e.thing.bIsMonster && !e.thing.bNoBlood && (e.thing is "ZombieMan" || e.thing is "ShotgunGuy" || e.thing is "DoomImp" || e.thing is "Demon" || e.thing is "ChaingunGuy"))
+		{
+			if(random(0,10) > 9) e.thing.A_Dropitem("RandomStuffDrops2");
+		}
+	}
+	
+	//must replace all custom weapons and ammo drops
+	override void WorldThingSpawned(WorldEvent e)
+	{
+		let player = Players[ConsolePlayer].mo;
+		let spawned_thing = e.Thing;
+	
+		//do no replace drops from heretic/hexen/strife. they will be handled by filter lumps
+		if((GameInfo.GameType & GAME_Heretic) || (GameInfo.GameType & GAME_Hexen) || (GameInfo.GameType & GAME_Strife)) return;
+	
+		String pickup_class = spawned_thing.GetClassName();
+		pickup_class = pickup_class.MakeLower();
+		
+		for(int i = 0; i < SH_pickup_list.Size(); i++) {
+			if(spawned_thing && pickup_class == SH_pickup_list[i]) {
+				return;
+				break;
+			}
+		}
+		
+		//now try to match weapons based on parent class
+		if(spawned_thing is "weapon")
+		{
+			bool weapon_replaced;
+			if(spawned_thing is "supershotgun" || pickup_class.IndexOf("supershotgun") >= 0 || pickup_class.IndexOf("ssg") >= 0 || pickup_class.IndexOf("sawed") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("RickSSG", 1);
+				else
+					Actor.Spawn("RickSSG", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "shotgun" || pickup_class.IndexOf("shotgun") >= 0 || pickup_class.IndexOf("shotty") >= 0 || pickup_class.IndexOf("boomstick") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("BaseballBat", 1);
+				else
+					Actor.Spawn("BaseballBat", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "rocketlauncher" || pickup_class.IndexOf("rpg") >= 0 || pickup_class.IndexOf("rocket") >= 0 || pickup_class.IndexOf("missile") >= 0 || pickup_class.IndexOf("grenade") >= 0 || pickup_class.IndexOf("flak") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("PotassiumBomb", 1);
+				else
+					Actor.Spawn("PotassiumBomb", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "plasmarifle" || pickup_class.IndexOf("plasma") >= 0 || pickup_class.IndexOf("laser") >= 0 || pickup_class.IndexOf("flame") >= 0 || pickup_class.IndexOf("lightning") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("TerrorBlast", 1);
+				else
+					Actor.Spawn("TerrorBlast", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "bfg9000" || pickup_class.IndexOf("bfg") >= 0 || pickup_class.IndexOf("blackhole") >= 0 || pickup_class.IndexOf("mass") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("TerrorBlast", 1);
+				else
+					Actor.Spawn("TerrorBlast", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "chaingun" || pickup_class.IndexOf("chaingun") >= 0 || pickup_class.IndexOf("machinegun") >= 0 || pickup_class.IndexOf("smg") >= 0 || pickup_class.IndexOf("assault") >= 0 || pickup_class.IndexOf("rifle") >= 0 || pickup_class.IndexOf("mp") >= 0 || pickup_class.IndexOf("machine") >= 0 || pickup_class.IndexOf("carbine") >= 0 || pickup_class.IndexOf("ak47") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("RickSSG", 1);
+				else
+					Actor.Spawn("RickSSG", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "pistol" || pickup_class.IndexOf("pistol") >= 0 || pickup_class.IndexOf("magnum") >= 0 || pickup_class.IndexOf("colt") >= 0 || pickup_class.IndexOf("berreta") >= 0 || pickup_class.IndexOf("luger") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("BaseballBat", 1);
+				else
+					Actor.Spawn("BaseballBat", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			else if(spawned_thing is "chainsaw" || pickup_class.IndexOf("saw") >= 0 || pickup_class.IndexOf("grind") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("RickChainsaw", 1);
+				else
+					Actor.Spawn("RickChainsaw", spawned_thing.pos);
+				weapon_replaced = true;
+			}
+			if(weapon_replaced)
+			{
+				spawned_thing.Destroy();
+				return;
+			}
+		}
+		
+		
+		//now try to match ammo based on parent class
+		if(spawned_thing is "ammo")
+		{
+			bool ammo_replaced;
+			if(spawned_thing is "clipbox" || pickup_class.IndexOf("clipbox") >= 0 || pickup_class.IndexOf("mag") >= 0 || (pickup_class.IndexOf("box") >= 0 && (pickup_class.IndexOf("bullet") >= 0 || pickup_class.IndexOf("clip") >= 0)))
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("RandomSmallDropsGive", 1);
+				else
+					Actor.Spawn("RandomStuffDrops", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(spawned_thing is "clip" || pickup_class.IndexOf("clip") >= 0 || pickup_class.IndexOf("bullet") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("RandomSmallDropsGive", 1);
+				else
+					Actor.Spawn("RandomSmallDrops", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(pickup_class.IndexOf("shellbox") < 0 && pickup_class.IndexOf("box") >= 0 && (pickup_class.IndexOf("shell") >= 0 || pickup_class.IndexOf("slug") >= 0))
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("shellbox", 1);
+				else
+					Actor.Spawn("shellbox", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(pickup_class.IndexOf("slug") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("shell", 4);
+				else
+					Actor.Spawn("shell", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(pickup_class.IndexOf("rocketbox") < 0 && pickup_class.IndexOf("box") >= 0 && (pickup_class.IndexOf("rocket") >= 0 || pickup_class.IndexOf("grenade") >= 0 || pickup_class.IndexOf("flak") >= 0))
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("rocketbox", 1);
+				else
+					Actor.Spawn("rocketbox", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(pickup_class.IndexOf("rocketammo") < 0 && (pickup_class.IndexOf("rocket") >= 0 || pickup_class.IndexOf("grenade") >= 0|| pickup_class.IndexOf("flak") >= 0))
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("rocketammo", 1);
+				else
+					Actor.Spawn("rocketammo", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(pickup_class.IndexOf("cellpack") < 0 && pickup_class.IndexOf("box") >= 0 && (pickup_class.IndexOf("cell") >= 0 || pickup_class.IndexOf("plasma") >= 0 || pickup_class.IndexOf("energy") >= 0 || pickup_class.IndexOf("electric") >= 0 || pickup_class.IndexOf("laser") >= 0 || pickup_class.IndexOf("flame") >= 0))
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("cellpack", 1);
+				else
+					Actor.Spawn("cellpack", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			else if(pickup_class.IndexOf("plasma") >= 0 || pickup_class.IndexOf("energy") >= 0 || pickup_class.IndexOf("electric") >= 0 || pickup_class.IndexOf("laser") >= 0 || pickup_class.IndexOf("flame") >= 0)
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("cell", 20);
+				else
+					Actor.Spawn("cell", spawned_thing.pos);
+				ammo_replaced = true;
+			}
+			if(ammo_replaced)
+			{
+				spawned_thing.Destroy();
+				return;
+			}
+		}
+		
+		/*
+		if(spawned_thing is "BackpackItem")
+		{
+			Actor.Spawn("vanilla_backpack", spawned_thing.pos);
+			spawned_thing.Destroy();
+			return;
+		}
+		*/
+		
+		if(spawned_thing is "Ammo" || spawned_thing is "Weapon")
+		{
+			//if this thing is given by the game into iventory destroy it immediately
+			if(player.FindInventory(spawned_thing.GetClassName()))
+			{
+				spawned_thing.Destroy();
+				return;
+			}
+		
+			//Remove all custom ammo or weapon from inventory
+			let invitem = Inventory(spawned_thing);
+			if(invitem.owner && (spawned_thing is "Ammo" || spawned_thing is "Weapon")) {
+				invitem.owner.RemoveInventory(invitem);
+			}
+			
+			//Replace all spawned custom weapon and ammo
+			if(spawned_thing is "Weapon")
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("UnknownWeaponGiver", 1);
+				else
+					Actor.Spawn("UnknownWeaponReplacer", spawned_thing.pos);
+			}
+			if(spawned_thing is "Ammo")
+			{
+				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
+					player.GiveInventory("UnknownAmmoGiver", 1);
+				else
+					Actor.Spawn("UnknownAmmoReplacer", spawned_thing.pos);
+			}
+			
+			spawned_thing.Destroy();
+		}
+	}
+	
+	static const string SH_pickup_list[] = {
+	
+		//weapons
+		"rickfuryfist",
+		"baseballbat",
+		"rickchainsaw",
+		"rickssg",
+		"potassiumbomb",
+		"terrorblast",
+		
+		//ammo
+		"shell",
+		"shell1",
+		"shellbox",
+		"shellbox1",
+		"rocketammo",
+		"rocketammo1",
+		"rocketbox",
+		"rocketbox1",
+		"rocketbox2",
+		"cell",
+		"cell1",
+		"cellpack",
+		"cellpack1",
+		
+		//pickups
+		"lifewill",
+		"halfwill",
+		"halfheart",
+		"lifeheart",
+		"berserk1",
+		"terrormask",
+		"jennyspirit",
+		"jennysave",
+		"bluearmorforjennyspirit",
+		"jennyspirithealth",
+		"davidsave",
+		
+		//helper items
+		"classid",
+		"step",
+		"ssgshot"
+	};
+
+	private static bool CheckTitlemap()
+	{
+		bool isTitlemap = (level.mapname == "TITLEMAP");
+		return isTitlemap;
+	}
+	
+	private bool _isTitlemap;
+}
+
+Class RandomSmallDrops : RandomSpawner
+{
+	Default
+	{
+	DropItem "HalfHeart";
+	DropItem "HalfWill";
+	}
+}
+
+Class RandomSmallDropsGive : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_Jump(128, "GiveArmor");
+		TNT1 A 1 A_GiveInventory("HalfHeart", 3);
+		Stop;
+	GiveArmor:
+		TNT1 A 1 A_GiveInventory("HalfWill", 3);
+		Stop;
+	}
+}
+
+Class RandomStuffDrops : RandomSpawner
+{
+	Default
+	{
+	DropItem "LifeHeart";
+	DropItem "LifeWill";
+	}
+}
+
+Class RandomStuffDropsGive : CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_Jump(128, "GiveArmor");
+		TNT1 A 1 A_GiveInventory("LifeHeart", 10);
+		Stop;
+	GiveArmor:
+		TNT1 A 1 A_GiveInventory("LifeWill", 10);
+		Stop;
+	}
+}
+
+Class RandomStuffDrops2 : RandomSpawner
+{
+	Default
+	{
+	DropItem "HalfHeart", 64, 1;
+	DropItem "HalfWill", 64, 1;
+	}
+}
+
+Class UnknownWeaponReplacer : RandomSpawner
+{
+	Default
+	{
+	DropItem "BaseballBat", 255, 12;
+	DropItem "RickChainsaw", 255, 8;
+	DropItem "RickSSG", 255, 6;
+	DropItem "PotassiumBomb", 255, 3;
+	DropItem "TerrorBlast", 255, 1;
+	}
+}
+
+Class UnknownWeaponGiver: CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_Jump(128, "GiveArmor");
+		TNT1 A 1 A_GiveInventory("BaseballBat", 1);
+		Stop;
+	GiveChainsaw:
+		TNT1 A 1 A_GiveInventory("RickSSG", 1);
+		Stop;
+	GiveSSG:
+		TNT1 A 1 A_GiveInventory("RickSSG", 1);
+		Stop;
+	GiveBomb:
+		TNT1 A 1 A_GiveInventory("PotassiumBomb", 1);
+		Stop;
+	GiveMagicThing:
+		TNT1 A 1 A_GiveInventory("TerrorBlast", 1);
+		Stop;
+	}
+}
+
+Class UnknownAmmoReplacer : RandomSpawner
+{
+	Default
+	{
+	DropItem "shell", 255, 7;
+	DropItem "rocketammo", 255, 3;
+	DropItem "cell", 255, 5;
+	DropItem "ShellBox", 255, 3;
+	DropItem "RocketBox", 255, 1;
+	DropItem "CellPack", 255, 1;
+	}
+}
+
+Class UnknownAmmoGiver: CustomInventory
+{
+	States
+	{
+	Pickup:
+		TNT1 A 0 A_Jump(100, "GiveBomb", "GiveCell");
+		TNT1 A 0 A_Jump(80, "GiveLotOfShell");
+		TNT1 A 0 A_Jump(60, "GiveLotOfBomb", "GiveLotOfCell");
+		TNT1 A 1 A_GiveInventory("shell", 4);
+		Stop;
+	GiveBomb:
+		TNT1 A 1 A_GiveInventory("rocketammo", 1);
+		Stop;
+	GiveCell:
+		TNT1 A 1 A_GiveInventory("cell", 10);
+		Stop;
+	GiveLotOfShell:
+		TNT1 A 1 A_GiveInventory("ShellBox", 1);
+		Stop;
+	GiveLotOfCell:
+		TNT1 A 1 A_GiveInventory("RocketBox", 1);
+		Stop;
+	GiveLotOfBomb:
+		TNT1 A 1 A_GiveInventory("CellPack", 1);
+		Stop;
+	GiveLotOfCell:
+		TNT1 A 1 A_GiveInventory("TerrorBlast", 1);
+		Stop;
+	}
+}

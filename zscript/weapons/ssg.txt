@@ -1,5 +1,5 @@
 
-Class RickSSG : WeaponZ replaces Supershotgun
+Class RickSSG : WeaponZ //replaces Supershotgun
 {
 	Default
 	{
@@ -95,6 +95,9 @@ Class RickSSG : WeaponZ replaces Supershotgun
 		SHMF B 2 Bright A_Light2;
 		TNT1 A 1 A_light1;
 		goto lightdone;
+	Spawn:
+		SGN2 A -1;
+		Stop;
 	Dummy:
 		SH2H ABCDEFGHIJKLM 1;
 		SHRH ABCDEFGHIJKLMNO 1;

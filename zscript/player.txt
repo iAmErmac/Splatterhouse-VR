@@ -20,14 +20,6 @@ Class RickPlayer : PlayerPawn
 	Player.DisplayName "Rick";
 	player.startitem "RickFuryFist";
 	Player.StartItem "ClassID", 1;
-	player.startitem "BaseballBat";
-	player.startitem "RickChainsaw";
-	player.startitem "RickSSG";
-	player.startitem "PotassiumBomb";
-	player.startitem "TerrorBlast";
-	player.startitem "Shell", 50;
-	player.startitem "rocketammo", 100;
-	player.startitem "cell", 600;
 	player.viewheight 48;
 	player.attackzoffset 20;
 	Player.Weaponslot 1, "RickFuryFist";

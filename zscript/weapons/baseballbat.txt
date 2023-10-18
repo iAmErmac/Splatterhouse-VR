@@ -102,4 +102,12 @@ Class KickPuff : BatPuff
 	seesound "weapons/fist/punch";
 	ProjectileKickback 200;
 	}
-}  
+}
+
+Class BaseballBatPickup : RandomSpawner
+{
+	Default
+	{
+	DropItem "BaseballBat", 30, 1;
+	}
+}

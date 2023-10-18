@@ -100,3 +100,40 @@ Class BottleFire : rocket2
 		Loop;
 	}
 }
+
+Class PotassiumBombPickup : CustomInventory
+{
+	Default
+	{
+	+COUNTITEM
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.Pickupsound "ammo/pbombs";
+	Inventory.PickupMessage "The bar is open, ladies!";
+	}
+	
+	States
+	{
+	Spawn:
+		BOMI A 6;
+		loop;
+	Pickup:
+		TNT1 A 0 A_GiveInventory("rocketammo", 4);
+		TNT1 A 0 A_GiveInventory("PotassiumBomb", 1);
+		Stop;
+	}
+}
+
+Class RocketBox2 : RocketBox
+{
+	Default
+	{
+	inventory.pickupsound "ammo/rockets";
+	}
+	
+	States
+	{
+	Spawn:
+		BBOX A -1;
+		Stop;
+	}
+}

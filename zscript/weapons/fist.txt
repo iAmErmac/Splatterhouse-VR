@@ -1,4 +1,4 @@
-Class RickFuryFist : Fist replaces Fist
+Class RickFuryFist : Fist //replaces Fist
 {
 	Default
 	{
