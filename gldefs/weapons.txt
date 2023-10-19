@@ -11,8 +11,8 @@ material texture "models/weapons/fist/hand.png"
 
 material texture "models/weapons/foot/foot.png"
 {
-    normal "models/weapons/fist/foot_N.png" 
-    specular "models/weapons/fist/foot_S.png"
+    normal "models/weapons/foot/foot_N.png" 
+    specular "models/weapons/foot/foot_S.png"
     glossiness 10
 	specularlevel 5
 	
@@ -21,6 +21,25 @@ material texture "models/weapons/foot/foot.png"
 
 material texture "models/weapons/foot/shoe.png"
 {
+	shader "shaders/SimSun.fp"
+}
+
+material texture "models/weapons/plank/hand.png"
+{
+    normal "models/weapons/plank/hand_N.png" 
+    specular "models/weapons/plank/hand_S.png"
+    glossiness 5
+	specularlevel 2
+	
+	shader "shaders/SimSun.fp"
+}
+material texture "models/weapons/plank/plank.png"
+{
+    normal "models/weapons/plank/plank_N.png" 
+    specular "models/weapons/plank/plank_S.png"
+    glossiness 5
+	specularlevel 2
+	
 	shader "shaders/SimSun.fp"
 }
 

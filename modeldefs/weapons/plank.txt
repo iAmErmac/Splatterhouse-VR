@@ -1,0 +1,193 @@
+
+Model RickPlank
+{ 
+	Path "models/weapons/plank"
+	Model 0 "plank.md3"
+	Skin 0 "plank.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+
+	//Ready
+	FrameIndex PLNK A 0 0
+}
+
+Model RickPlank
+{ 
+	Path "models/weapons/plank"
+	Model 0 "plank.md3"
+	Skin 0 "plank.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	//Attack
+	FrameIndex PLNK B 0 1
+	FrameIndex PLNK C 0 2
+	FrameIndex PLNK D 0 3
+	FrameIndex PLNK E 0 4
+	FrameIndex PLNK F 0 5
+	FrameIndex PLNK G 0 6
+	FrameIndex PLNK H 0 7
+	FrameIndex PLNK I 0 8
+	FrameIndex PLNK J 0 9
+	FrameIndex PLNK K 0 10
+	FrameIndex PLNK L 0 11
+	FrameIndex PLNK M 0 12
+}
+
+//with hand
+Model RickPlank
+{ 
+	Path "models/weapons/plank"
+	Model 0 "plank.md3"
+	Skin 0 "plank.png"
+	Model 1 "plank_fist.md3"
+	Skin 1 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	NOINTERPOLATION
+
+	//Ready
+	FrameIndex PLKH A 0 0	FrameIndex PLKH A 1 0
+}
+
+//with hand
+Model RickPlank
+{ 
+	Path "models/weapons/plank"
+	Model 0 "plank.md3"
+	Skin 0 "plank.png"
+	Model 1 "plank_fist.md3"
+	Skin 1 "hand.png"
+	Scale -0.7 0.7 0.7
+	Offset 3.0 -20 -7.0
+	
+	//Attack
+	FrameIndex PLKH B 0 1	FrameIndex PLKH B 1 1
+	FrameIndex PLKH C 0 2	FrameIndex PLKH C 1 2
+	FrameIndex PLKH D 0 3	FrameIndex PLKH D 1 3
+	FrameIndex PLKH E 0 4	FrameIndex PLKH E 1 4
+	FrameIndex PLKH F 0 5	FrameIndex PLKH F 1 5
+	FrameIndex PLKH G 0 6	FrameIndex PLKH G 1 6
+	FrameIndex PLKH H 0 7	FrameIndex PLKH H 1 7
+	FrameIndex PLKH I 0 8	FrameIndex PLKH I 1 8
+	FrameIndex PLKH J 0 9	FrameIndex PLKH J 1 9
+	FrameIndex PLKH K 0 10	FrameIndex PLKH K 1 10
+	FrameIndex PLKH L 0 11	FrameIndex PLKH L 1 11
+	FrameIndex PLKH M 0 12	FrameIndex PLKH M 1 12
+}
+
+
+Model PlankDebris1
+{ 
+	Path "models/weapons/plank"
+	Model 0 "plank_debris1.md3"
+	Skin 0 "plank.png"
+	Scale -0.7 0.7 0.7
+	Offset 0.0 0.0 0.0
+	
+	FrameIndex PLNK B 0 1
+	FrameIndex PLNK C 0 2
+	FrameIndex PLNK D 0 3
+	FrameIndex PLNK E 0 4
+	FrameIndex PLNK F 0 5
+	FrameIndex PLNK G 0 6
+	FrameIndex PLNK H 0 7
+	FrameIndex PLNK I 0 8
+	FrameIndex PLNK J 0 9
+	FrameIndex PLNK K 0 10
+	FrameIndex PLNK L 0 11
+	FrameIndex PLNK M 0 12
+	FrameIndex PLNK N 0 13
+	FrameIndex PLNK O 0 14
+	
+	NOINTERPOLATION
+
+	FrameIndex PLNK A 0 0
+}
+
+Model PlankDebris2
+{ 
+	Path "models/weapons/plank"
+	Model 0 "plank_debris2.md3"
+	Skin 0 "plank.png"
+	Scale -0.7 0.7 0.7
+	Offset 0.0 0.0 0.0
+	
+	FrameIndex PLNK B 0 1
+	FrameIndex PLNK C 0 2
+	FrameIndex PLNK D 0 3
+	FrameIndex PLNK E 0 4
+	FrameIndex PLNK F 0 5
+	FrameIndex PLNK G 0 6
+	FrameIndex PLNK H 0 7
+	FrameIndex PLNK I 0 8
+	FrameIndex PLNK J 0 9
+	FrameIndex PLNK K 0 10
+	FrameIndex PLNK L 0 11
+	FrameIndex PLNK M 0 12
+	FrameIndex PLNK N 0 13
+	FrameIndex PLNK O 0 14
+	
+	NOINTERPOLATION
+
+	FrameIndex PLNK A 0 0
+}
+
+Model PlankDebris3
+{ 
+	Path "models/weapons/plank"
+	Model 0 "plank_debris3.md3"
+	Skin 0 "plank.png"
+	Scale -0.7 0.7 0.7
+	Offset 0.0 0.0 0.0
+	
+	FrameIndex PLNK B 0 1
+	FrameIndex PLNK C 0 2
+	FrameIndex PLNK D 0 3
+	FrameIndex PLNK E 0 4
+	FrameIndex PLNK F 0 5
+	FrameIndex PLNK G 0 6
+	FrameIndex PLNK H 0 7
+	FrameIndex PLNK I 0 8
+	FrameIndex PLNK J 0 9
+	FrameIndex PLNK K 0 10
+	FrameIndex PLNK L 0 11
+	FrameIndex PLNK M 0 12
+	FrameIndex PLNK N 0 13
+	FrameIndex PLNK O 0 14
+	
+	NOINTERPOLATION
+
+	FrameIndex PLNK A 0 0
+}
+
+Model PlankDebris4
+{ 
+	Path "models/weapons/plank"
+	Model 0 "plank_debris4.md3"
+	Skin 0 "plank.png"
+	Scale -0.7 0.7 0.7
+	Offset 0.0 0.0 0.0
+	
+	FrameIndex PLNK B 0 1
+	FrameIndex PLNK C 0 2
+	FrameIndex PLNK D 0 3
+	FrameIndex PLNK E 0 4
+	FrameIndex PLNK F 0 5
+	FrameIndex PLNK G 0 6
+	FrameIndex PLNK H 0 7
+	FrameIndex PLNK I 0 8
+	FrameIndex PLNK J 0 9
+	FrameIndex PLNK K 0 10
+	FrameIndex PLNK L 0 11
+	FrameIndex PLNK M 0 12
+	FrameIndex PLNK N 0 13
+	FrameIndex PLNK O 0 14
+	
+	NOINTERPOLATION
+
+	FrameIndex PLNK A 0 0
+}

@@ -2,6 +2,7 @@ version "3.5"
 
 #include "zscript/weapon_base.txt"
 #include "zscript/weapons/fist.txt"
+#include "zscript/weapons/plank.txt"
 #include "zscript/weapons/baseballbat.txt"
 #include "zscript/weapons/chainsaw.txt"
 #include "zscript/weapons/ssg.txt"

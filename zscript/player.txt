@@ -19,16 +19,18 @@ Class RickPlayer : PlayerPawn
 	Player.CrouchSprite "RICC";
 	Player.DisplayName "Rick";
 	player.startitem "RickFuryFist";
+	player.startitem "RickPlank";
 	Player.StartItem "ClassID", 1;
 	player.viewheight 48;
 	player.attackzoffset 20;
 	Player.Weaponslot 1, "RickFuryFist";
-	Player.Weaponslot 2, "BaseballBat";
+	Player.Weaponslot 2, "RickPlank", "BaseballBat";
 	Player.Weaponslot 3, "RickChainsaw";
 	Player.Weaponslot 4, "RickSSG";
 	Player.Weaponslot 5, "PotassiumBomb";
 	Player.Weaponslot 6, "TerrorBlast";
 	Player.DisplayName "Rick";
+	DamageFactor "PlankSmash", 0;
 	}
 	
 	override void Tick()

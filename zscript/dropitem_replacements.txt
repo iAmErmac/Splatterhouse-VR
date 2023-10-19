@@ -13,6 +13,7 @@ Class SHItemDropEvent : EventHandler
 		{
 			//weapons
 			if(e.Replacee is "Fist") 				e.Replacement = 'RickFuryFist';
+			if(e.Replacee is "Pistol") 				e.Replacement = 'RickPlankGiver';
 			if(e.Replacee is "Shotgun") 			e.Replacement = 'BaseballBatPickup';
 			if(e.Replacee is "Chainsaw") 			e.Replacement = 'RickChainsaw';
 			if(e.Replacee is "SuperShotgun") 		e.Replacement = 'RickSSG';
@@ -30,9 +31,14 @@ Class SHItemDropEvent : EventHandler
 	
 	override void WorldThingDied(WorldEvent e)
 	{
-		if(e.thing && e.thing.bIsMonster && !e.thing.bNoBlood && (e.thing is "ZombieMan" || e.thing is "ShotgunGuy" || e.thing is "DoomImp" || e.thing is "Demon" || e.thing is "ChaingunGuy"))
+		if(e.thing && e.thing.bIsMonster && !e.thing.bNoBlood && (e.thing is "DoomImp" || e.thing is "Demon" || e.thing is "ChaingunGuy"))
 		{
-			if(random(0,10) > 9) e.thing.A_Dropitem("RandomStuffDrops2");
+			e.thing.A_Dropitem("RandomStuffDrops2");
+		}
+		
+		if(e.thing && e.thing.bIsMonster && !e.thing.bNoBlood && (e.thing is "SplatGhoul" || e.thing is "howler" || e.thing is "SplatRedGhoul" || e.thing is "TopHeavy" || e.thing is "SplatZombie" || e.thing is "ChainGhoulLive"))
+		{
+			e.thing.A_Dropitem("RandomPlankDrop");
 		}
 	}
 	
@@ -138,9 +144,9 @@ Class SHItemDropEvent : EventHandler
 			if(spawned_thing is "clipbox" || pickup_class.IndexOf("clipbox") >= 0 || pickup_class.IndexOf("mag") >= 0 || (pickup_class.IndexOf("box") >= 0 && (pickup_class.IndexOf("bullet") >= 0 || pickup_class.IndexOf("clip") >= 0)))
 			{
 				if(spawned_thing.bNoBlockmap && spawned_thing.bNoSector && Inventory(spawned_thing).owner && Inventory(spawned_thing).owner is "PlayerPawn")
-					player.GiveInventory("RandomSmallDropsGive", 1);
+					player.GiveInventory("RickPlankGiver", 1);
 				else
-					Actor.Spawn("RandomStuffDrops", spawned_thing.pos);
+					Actor.Spawn("RickPlankGiver", spawned_thing.pos);
 				ammo_replaced = true;
 			}
 			else if(spawned_thing is "clip" || pickup_class.IndexOf("clip") >= 0 || pickup_class.IndexOf("bullet") >= 0)
@@ -209,7 +215,7 @@ Class SHItemDropEvent : EventHandler
 		/*
 		if(spawned_thing is "BackpackItem")
 		{
-			Actor.Spawn("vanilla_backpack", spawned_thing.pos);
+			Actor.Spawn("BackPack", spawned_thing.pos);
 			spawned_thing.Destroy();
 			return;
 		}
@@ -254,6 +260,7 @@ Class SHItemDropEvent : EventHandler
 	
 		//weapons
 		"rickfuryfist",
+		"rickplank",
 		"baseballbat",
 		"rickchainsaw",
 		"rickssg",
@@ -307,8 +314,9 @@ Class RandomSmallDrops : RandomSpawner
 {
 	Default
 	{
-	DropItem "HalfHeart";
-	DropItem "HalfWill";
+	DropItem "HalfHeart", 100, 2;
+	DropItem "HalfWill", 100, 2;
+	DropItem "RickPlankGiver", 150, 1;
 	}
 }
 
@@ -326,35 +334,21 @@ Class RandomSmallDropsGive : CustomInventory
 	}
 }
 
-Class RandomStuffDrops : RandomSpawner
-{
-	Default
-	{
-	DropItem "LifeHeart";
-	DropItem "LifeWill";
-	}
-}
-
-Class RandomStuffDropsGive : CustomInventory
-{
-	States
-	{
-	Pickup:
-		TNT1 A 0 A_Jump(128, "GiveArmor");
-		TNT1 A 1 A_GiveInventory("LifeHeart", 10);
-		Stop;
-	GiveArmor:
-		TNT1 A 1 A_GiveInventory("LifeWill", 10);
-		Stop;
-	}
-}
-
 Class RandomStuffDrops2 : RandomSpawner
 {
 	Default
 	{
-	DropItem "HalfHeart", 64, 1;
-	DropItem "HalfWill", 64, 1;
+	DropItem "HalfHeart", 16, 2;
+	DropItem "HalfWill", 32, 2;
+	DropItem "RickPlankGiver", 32, 1;
+	}
+}
+
+Class RandomPlankDrop : RandomSpawner
+{
+	Default
+	{
+	DropItem "RickPlankGiver", 16, 1;
 	}
 }
 

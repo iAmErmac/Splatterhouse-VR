@@ -40,6 +40,33 @@ woodhit2 		woodhit2
 woodhit3 		woodhit3
 woodhit4 		woodhit4
 
+$random PlankHit { plnkhit1 plnkhit2 plnkhit3 plnkhit4 plnkhit5 plnkhit6 plnkhit7 plnkhit8 }
+plnkhit1		plnkhit1
+plnkhit2		plnkhit2
+plnkhit3		plnkhit3
+plnkhit4		plnkhit4
+plnkhit5		plnkhit5
+plnkhit6		plnkhit6
+plnkhit7		plnkhit7
+plnkhit8		plnkhit8
+
+$random PlankBreak { plnkbrk1 plnkbrk2 plnkbrk3 }
+plnkbrk1		plnkbrk1
+plnkbrk2		plnkbrk2
+plnkbrk3		plnkbrk3
+
+$random PlankDrop { plkdrop1 plkdrop2 plkdrop3 plkdrop4 plkdrop5 plkdrop6 plkdrop7 plkdrop8 plkdrop9 }
+plkdrop1		plkdrop1
+plkdrop2		plkdrop2
+plkdrop3		plkdrop3
+plkdrop4		plkdrop4
+plkdrop5		plkdrop5
+plkdrop6		plkdrop6
+plkdrop7		plkdrop7
+plkdrop8		plkdrop8
+plkdrop9		plkdrop9
+
+$limit PlankDrop 3
 
 //ambient sounds
 //continuous sounds

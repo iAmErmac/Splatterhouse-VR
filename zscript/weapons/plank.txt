@@ -1,0 +1,255 @@
+
+Class RickPlank : BaseballBat
+{
+	Default
+	{
+	//$Category Weapons
+	Weapon.SelectionOrder 299;
+	Weapon.SlotNumber 2;
+	Weapon.Kickback 200;
+	+WEAPON.MELEEWEAPON;
+	+WEAPON.CHEATNOTWEAPON;
+	+PUFFONACTORS;
+	Inventory.Icon "R2X4A0";
+	//Inventory.Pickupsound "BatSwing";
+	Inventory.PickupMessage "Two by Four, Beat 'em some More!";
+	Obituary "%k hit a home run with %o's head.";
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if(selfDestruct)
+		{
+			destroy();
+			return;
+		}
+		
+		if(owner)
+		{
+			if(owner.player.mo.CountInv("PlankHitCountReset"))
+			{
+				owner.player.mo.SetInventory("PlankHitCount", 0);
+				owner.player.mo.SetInventory("PlankHitCountReset", 0);
+			}
+		}
+	}
+	
+	States
+	{
+	Ready:
+		TNT1 A 0;
+		PLNK A 0 A_ReplaceSprite("sh_weapon_mode", "PLKH");
+		#### A 1 A_WeaponReady;
+		loop;
+	Busted:
+		#### A 0 A_FireProjectile("PlankDebrisSpawner", 0, 0);
+		#### A 0 A_TakeInventory("PlankHitCount", 10);
+		#### A 0 A_TakeInventory("RickPlank", 1);
+		#### AAAAA 1 A_Lower(160);
+		stop;
+	Deselect:
+		#### AAAAA 1 A_Lower(160);
+		stop;
+	Select: 
+		PLNK A 0 A_ReplaceSprite("sh_weapon_mode", "PLKH");
+		#### A 1 A_Raise(160);
+		loop;
+	Fire:
+		#### BC 1;
+		#### D 1 A_PlaySound("Batswing");
+		#### EFG 1;
+		#### H 1 A_CustomPunch (Random(10, 15), FALSE, 0, "PlankHitPuff", 112);
+		#### IJK 1 A_JumpIfInventory("PlankHitCount", 10, "Busted");
+		#### K 8;
+		#### LM 1;
+		#### A 10;
+		goto Ready;
+	Spawn:
+		R2X4 A -1;
+		Stop;
+	Dummy:
+		PLKH ABCDEFGHI 1;
+		Stop;
+	}
+	
+	private bool selfDestruct;
+}
+
+Class PlankHitPuff : FuryFistPuff
+{
+	Default
+	{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+NOEXTREMEDEATH
+	+PUFFONACTORS
+	+PUFFGETSOWNER
+	+FRIENDLY
+	RenderStyle "Translucent";
+	Alpha 0.6;
+	VSpeed 1;
+	}
+	
+	action void A_CountHit()
+	{
+		if(invoker.target)
+		{
+			int hitcount;
+			
+			if(invoker.wallhit)
+				hitcount = random(0,5) > 3;
+			else
+				hitcount = 1 + random(0,1);
+			
+			if(hitcount) target.A_GiveInventory("PlankHitCount", hitcount);
+		}
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+	Melee:
+		TNT1 A 0 { invoker.wallhit = true; }
+		TNT1 A 0 A_playsound("PlankHit", CHAN_WEAPON);
+		TNT1 AAAAAAAA 0 A_SpawnProjectile ("MeleeSmoke", 0, 0, random (0, 360), 2, random (0, 360));
+		TNT1 AAAA 0 A_SpawnProjectile ("RicochetSpark",0,0,random(-360,360),2,random(-60,60));
+		TNT1 A 0;
+		goto HitDone;
+	XDeath:
+		TNT1 A 0 A_playsound("BatHitThing", CHAN_WEAPON);
+		TNT1 A 0 A_Quake(2, 5, 0, 200);
+		TNT1 A 0 A_Explode(random(25, 60), 190, nails: 12, naildamage: random(15, 30), pufftype: "None", damagetype: "PlankSmash");
+		TNT1 A 0;
+		goto HitDone;
+	HitDone:
+		TNT1 A 0 A_CountHit();
+		TNT1 A 1;
+		Stop;
+	}
+	
+	private bool wallhit;
+}
+
+Class PlankHitCount : Inventory
+{
+	Default
+	{
+	Inventory.maxamount 10;
+	}
+}
+
+Class PlankHitCountReset : Inventory
+{
+	Default
+	{
+	Inventory.maxamount 1;
+	}
+}
+
+Class RickPlankGiver : CustomInventory
+{
+	Default
+	{
+	Inventory.PickupMessage "Two by Four, Beat 'em some More!";
+	Inventory.Icon "R2X4A0";
+	}
+	
+	States
+	{
+	Spawn:
+		R2X4 A -1;
+		Stop;
+	Pickup:
+		TNT1 A 0 A_GiveInventory("PlankHitCountReset", 1);
+		TNT1 A 1 A_GiveInventory("RickPlank", 1);
+		Stop;
+	}
+}
+
+Class PlankDebrisSpawner : Actor
+{
+	Default
+	{
+	+MISSILE
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+NOTELEPORT
+	+FORCEXYBILLBOARD
+	+NOTDMATCH
+	+GHOST
+	+CLIENTSIDEONLY
+	radius 1;
+	height 1;
+	mass 1;
+	speed 50;
+	}
+	
+	States
+	{
+	Spawn:
+		TNT1 A 1;
+		TNT1 A 0 A_SpawnProjectile("PlankDebris1", 0, 0, random(110, 250), 0, random(50, 70));
+		TNT1 A 0 A_SpawnProjectile("PlankDebris2", 0, 0, random(110, 250), 0, random(50, 70));
+		TNT1 AAA 0 A_SpawnProjectile("PlankDebris3", 0, 0, random(110, 250), 0, random(50, 70));
+		TNT1 A 0 A_SpawnProjectile("PlankDebris4", 0, 0, 0, random(110, 250), random(50, 70));
+		TNT1 A 1;
+		stop;
+	}
+}
+
+Class PlankDebris1 : Actor
+{
+	Default
+	{
+	+MISSILE
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+DROPOFF
+	+NOTELEPORT
+	+FORCEXYBILLBOARD
+	+NOTDMATCH
+	+GHOST
+	+DOOMBOUNCE
+	-NOGRAVITY
+	+DONTSPLASH
+	+CLIENTSIDEONLY
+	radius 1;
+	height 1;
+	mass 1;
+	damage 5;
+	speed 5;
+	BounceType "Doom";
+	bouncefactor 0.7;
+	BounceCount 3;
+	SeeSound "PlankDrop";
+	}
+
+	States
+	{
+	Spawn:
+		TNT1 A 0;
+		TNT1 A 0 A_SetAngle(random(0, 360));
+		TNT1 A 0 A_SetPitch(random(0, 10));
+		Goto Spawn1;
+	Spawn1:
+		PLNK ABCDEFGHIJKLMNO 2;
+		loop;
+	Death:
+		TNT1 A 0 A_Jump(128, "Death2");
+		PLNK D 105;
+	 	PLNK D 1 A_Fadeout(0.1);
+	 	wait;
+	Death2:
+		PLNK L 105;
+	 	PLNK L 1 A_Fadeout(0.1);
+	 	wait;
+	}
+}
+
+Class PlankDebris2 : PlankDebris1 {}
+Class PlankDebris3 : PlankDebris1 {}
+Class PlankDebris4 : PlankDebris1 {}
