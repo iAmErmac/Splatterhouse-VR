@@ -44,6 +44,7 @@ Class RickPlank : BaseballBat
 		#### A 1 A_WeaponReady;
 		loop;
 	Busted:
+		#### A 0 A_PlaySound("PlankBreak", CHAN_WEAPON, CHAN_OVERLAP);
 		#### A 0 A_FireProjectile("PlankDebrisSpawner", 0, 0);
 		#### A 0 A_TakeInventory("PlankHitCount", 10);
 		#### A 0 A_TakeInventory("RickPlank", 1);

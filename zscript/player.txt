@@ -85,7 +85,9 @@ Class RickPlayer : PlayerPawn
 				{
 					target = kick_target;
 					A_PlaySound("weapons/fist/punch", CHAN_WEAPON);
-					player.mo.A_DamageTarget(random(16,24), "Melee");
+					double kickDamage = random(16,24) * (random(0,9) > 8 ? frandom(1.5, 2.0) : 1);
+					if(player.mo.countinv("PowerStrength")) kickDamage *= random(3, 4);
+					player.mo.A_DamageTarget(kickDamage, "Melee");
 					kick_target = null;
 				}
 				else

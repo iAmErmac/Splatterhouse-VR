@@ -16,7 +16,12 @@ Doomworld forum discussion: https://www.doomworld.com/forum/topic/100214-splatte
 
 ## VR enhancements
 * 3D weapons
-* Extra Dark mode added
+* Bonus (temporary) weapon 2x4
+* Life-steal with chainsaw
+* Kick can be activated (except with shotgun) anytime with Alt-Fire
+* New intro music (Hell House)
+* Extra Dark mode
+* Universally compatible with any wad
 
 ## Installation
 
