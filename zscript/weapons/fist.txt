@@ -36,7 +36,7 @@ Class RickFuryFist : Fist //replaces Fist
 		FIST BC 1;
 		FIST C 0 A_playsound("weapons/fist/swing");
 		FIST DE 1;
-		RFIS E 3 A_Custompunch(40,0,1,"FistPuffStrong");
+		RFIS E 3 A_Custompunch(40,0,1,"FuryFistPuffStrong");
 		FIST FGHI 1;
 		FIST A 5;
 		FIST A 0 A_Refire;
