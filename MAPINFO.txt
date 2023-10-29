@@ -5,7 +5,7 @@ Gameinfo
 	titlemusic = "SPLMUTTL"
 	intermissionmusic = "SplatTtl"
 	finalemusic = "SplatFin"
-	AddEventHandlers = "SHItemDropEvent", "SHDarkness_Handler"
+	AddEventHandlers = "SHItemDropEvent", "SH_SpecialWeaponHandler", "SHDarkness_Handler"
 }
 
 DoomEdNums

@@ -1,4 +1,44 @@
 
+Class SH_SpecialWeaponHandler : EventHandler
+{
+	override void WorldLoaded(WorldEvent event)
+	{
+		_isTitlemap = CheckTitlemap();
+	}
+	
+	override void WorldTick()
+	{
+		if(_isTitlemap) return;
+		
+		playerinfo player = players[consoleplayer];
+		if(!player) return;
+		
+		if(!player.OffhandWeapon)
+		{
+			Weapon offhandweap;
+			let offhandfistweap = Weapon(player.mo.findinventory("RickOffhandFist"));
+			if(!player.mo.countinv("RickOffhandFist")) player.mo.giveinventory("RickOffhandFist", 1);
+			let offhandPlankweap = Weapon(player.mo.findinventory("RickPlank"));
+			
+			if(!offhandPlankweap)
+				offhandweap = Weapon(player.mo.findinventory("RickOffhandFist"));
+			else
+				offhandweap = offhandPlankweap;
+			player.OffhandWeapon = offhandweap;
+			player.PendingWeapon = offhandweap;
+			player.mo.BringUpWeapon();
+		}
+	}
+
+	private static bool CheckTitlemap()
+	{
+		bool isTitlemap = (level.mapname == "TITLEMAP");
+		return isTitlemap;
+	}
+	
+	private bool _isTitlemap;
+}
+
 Class WeaponZ : Weapon
 {
 	action void A_ReplaceSprite(String myvar, String ssprite, bool pickup=false, float sscale=0.7)
@@ -17,11 +57,11 @@ Class WeaponZ : Weapon
 			{
 				if(player)
 				{
-					//int mainhand = !invoker.bOffhandWeapon;
-					//if(mainhand)
+					int mainhand = !invoker.bOffhandWeapon;
+					if(mainhand)
 						Player.GetPSprite(PSP_WEAPON).sprite = wsprite;
-					//else
-						//Player.GetPSprite(PSP_OFFHANDWEAPON).sprite = wsprite;
+					else
+						Player.GetPSprite(PSP_OFFHANDWEAPON).sprite = wsprite;
 				}
 			}
 		}

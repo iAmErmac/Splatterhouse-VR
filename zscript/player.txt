@@ -19,11 +19,12 @@ Class RickPlayer : PlayerPawn
 	Player.CrouchSprite "RICC";
 	Player.DisplayName "Rick";
 	player.startitem "RickFuryFist";
+	player.startitem "RickOffhandFist";
 	player.startitem "RickPlank";
 	Player.StartItem "ClassID", 1;
 	player.viewheight 48;
 	player.attackzoffset 20;
-	Player.Weaponslot 1, "RickFuryFist";
+	Player.Weaponslot 1, "RickFuryFist", "RickOffhandFist";
 	Player.Weaponslot 2, "RickPlank", "BaseballBat";
 	Player.Weaponslot 3, "RickChainsaw";
 	Player.Weaponslot 4, "RickSSG";

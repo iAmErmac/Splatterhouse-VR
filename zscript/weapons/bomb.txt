@@ -12,6 +12,7 @@ Class PotassiumBomb : WeaponZ //31999
 	Weapon.AmmoUse2 0;
 	Weapon.AmmoGive2 0;
 	Weapon.Kickback 200;
+	+WEAPON.OFFHANDWEAPON;
 	Inventory.Icon "BOMIA0";
 	Inventory.Pickupsound "ammo/pbombs";
 	Inventory.PickupMessage "The bar is open, ladies!";
